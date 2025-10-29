@@ -7,5 +7,7 @@
 			"path": "../WebDev"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "WebDev_FSD_C247"
+	}
 }

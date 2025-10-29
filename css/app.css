@@ -1,10 +1,13 @@
-h1{
-    color:purple;
-}
-li{
-    color:green;
-}
-
-h1{
-    color:blue;
-}
+body {
+    background-color: #e8f0f2; /* pale cool blue-gray */
+    color: #1e293b;           /* slate text */
+  }
+  header, footer {
+    background-color: #0f172a; /* deep navy */
+    color: #e2e8f0;            /* soft white */
+  }
+  button {
+    background-color: #3b82f6; /* sky blue accent */
+    color: white;
+  }
+  
