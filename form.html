@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<body>
+    
+    <h2>Student Form</h2>
+    <br><br><br>
+    <form action="#" method="GET">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" placeholder="your name">
+        <br>
+        
+        <label for="email">*Email</label>
+        <input type="text" name="email" id="email" placeholder="your email" required>
+        <br>
+        
+        <label for="phone">Phone</label>
+        <input type="number" name="phone" id="phone" placeholder="your phone number" required>
+        <br>
+        
+        <label for="dob">D.O.B</label>
+        <input type="date" name="dob" id="dob" placeholder="your date of birth">
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <label for="course">Choose your course: </label>
+        <p>
+            
+            <select name="course" id="course">
+                <option value="webdev" multiple>web development</option>
+                <option value="datascience">data science</option>
+                <option value="ai">artificial intelligence</option>
+                <option value="cloud">cloud</option>
+            </select>
+        </p>
+        
+        
+        <label for="hobby">Choose your hobby: </label>
+        <input list="hobbies" id="hobby" name="hobby" placeholder="Type or select a hobby">
+        
+    
+        <datalist id="hobbies">
+            <option value="Reading">
+            <option value="Traveling">
+            <option value="Photography">
+            <option value="Cooking">
+            <option value="Gardening">
+            <option value="Cycling">
+            <option value="Painting">
+            <option value="Music">
+        </datalist>
+        <br><br><br>
+        
+        <label for="website">Website:</label>
+        <input type="url" name="website" id="website" placeholder="enter your website">
+        <br><br><br>
+        <label for="year">Year</label>
+        <input type="checkbox" name="year" id="year" value="first">First
+        <input type="checkbox" name="year" id="year" value="second">Second
+        <input type="checkbox" name="year" id="year" value="third">Third
+        <input type="checkbox" name="year" id="year" value="fourth">Fourth
+        <br><br><br>
+        
+        <label for="subject">Subject</label>
+        <input type="radio" name="subject" id="subject" value="subjectmaths">Mathematics
+        <input type="radio" name="subject" id="subject" value="subjectscience"> Computers
+        <input type="radio" name="subject" id="subject" value="subjecthistory"> Social Science
+        <input type="radio" name="subject" id="subject" value="subjectchemistry"> Chemical Engineering
+        <input type="radio" name="subject" id="subject" value="subjectphysics"> Astrophysics
+        <br><br>
+        
+        <button type="submit">Submit</button>
+        <button type="reset"></button>
+        <button type="next"></button>
+    </form>
+    
+</body>
+</html>
