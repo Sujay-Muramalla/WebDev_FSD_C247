@@ -1,13 +1,32 @@
 body {
-    background-color: #e8f0f2; /* pale cool blue-gray */
-    color: #1e293b;           /* slate text */
-  }
-  header, footer {
-    background-color: #0f172a; /* deep navy */
-    color: #e2e8f0;            /* soft white */
-  }
-  button {
-    background-color: #3b82f6; /* sky blue accent */
-    color: white;
-  }
-  
+  background-color: #e8f0f2; /* pale cool blue-gray */
+  color: #1e293b;           /* slate text */
+}
+header, footer {
+  background-color: #0f172a; /* deep navy */
+  color: #e2e8f0;            /* soft white */
+}
+button {
+  background-color: #3b82f6; /* sky blue accent */
+  color: white;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+h1{
+  color: red;
+}

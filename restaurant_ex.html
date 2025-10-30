@@ -4,31 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BharatCafe</title>
-    <!-- <link rel="stylesheet" href="css/app.css"> -->
+    <link rel="stylesheet" href="css/app.css">
     <!-- <style>
         h1{
-            color: #0f172a;
+        color: #0f172a;
         }
         table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
         }
         
         td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
         }
         
         tr:nth-child(even) {
-            background-color: #dddddd;
+        background-color: #dddddd;
         }
     </style> -->
 </head>
 <body style="background-color:#e8f0f2;color:#1e293b" >
     
-    <h1 style="color:#0f172a">Welcome to Bharat Cafe</h1>
+    <!-- <h1 style="color:#0f172a">Welcome to Bharat Cafe</h1> -->
+    <h1>Welcome to Bharat Cafe</h1>
     <h2>Your one-stop destination for delicious food and beverages!</h2>
     <p>Experience the rich flavors of India with our authentic dishes and refreshing drinks.</p>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur provident minus labore necessitatibus assumenda? <br> 
@@ -41,52 +42,124 @@
         <br>
         <br>
         
-        <table style="font-family: arial, sans-serif; border-collapse: collapse;">
+        <table>
             <tr>
-                <th style="border: 1px solid #dddddd;">Item</th>
-                <th style="border: 1px solid #dddddd;">Price</th>
-                <th style="border: 1px solid #dddddd;">Quantity</th>
+                <th>Item</th>
+                <th>Price (INR)</th>
+                <th>Status</th>
             </tr>
             <tr>
-                <td style="border: 1px solid #dddddd;">Bread Butter</td>
-                <td style="border: 1px solid #dddddd;">5$</td>
-                <td style="border: 1px solid #dddddd;">3</td>
+                <td>Dosa</td>
+                <td>80</td>
+                <td>available</td>
             </tr>
             <tr>
-                <td style="border: 1px solid #dddddd;">Omelette</td>
-                <td style="border: 1px solid #dddddd;">5$</td>
-                <td style="border: 1px solid #dddddd;">3</td>
+                <td>Idli</td>
+                <td>65</td>
+                <td>available</td>
             </tr>
             <tr>
-                <td style="border: 1px solid #dddddd;">Paratha</td>
-                <td style="border: 1px solid #dddddd;">5$</td>
-                <td style="border: 1px solid #dddddd;">3</td>
+                <td>Vada</td>
+                <td>70</td>
+                <td>available</td>
             </tr>
             <tr>
-                <td style="border: 1px solid #dddddd;">Sanwich</td>
-                <td style="border: 1px solid #dddddd;">5$</td>
-                <td style="border: 1px solid #dddddd;">3</td>
+                <td>Poori</td>
+                <td>85</td>
+                <td>Not Available</td>
             </tr>
             <tr>
-                <td style="border: 1px solid #dddddd;">Boiled Eggs</td>
-                <td style="border: 1px solid #dddddd;">5$</td>
-                <td style="border: 1px solid #dddddd;">3</td>
+                <td>Chole Bathure</td>
+                <td>100</td>
+                <td>available</td>
             </tr>
             <tr>
-                <td style="border: 1px solid #dddddd;">Tea</td>
-                <td style="border: 1px solid #dddddd;">5$</td>
-                <td style="border: 1px solid #dddddd;">3</td>
+                <td>Lassi</td>
+                <td>35</td>
+                <td>available</td>
             </tr>
         </table>
         
-    <h1 style="color:#0f172a">Hurry! reserve your table before it is full!</h1>
-    <h2>Below, you can send your details to book your reservations!</h2>  
+        <h1 style="color:#0f172a">Hurry! reserve your table before it is full!</h1>
+        <h2>Below, you can send your details to book your reservations!</h2>  
         
         
-        
-        
-        
-        
-        
-        
-    </body> </html>
+        <h2>Reserve your table</h2>
+        <br><br><br>
+        <form action="#" method="GET">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="your name">
+            <br>
+            
+            <label for="email">*Email</label>
+            <input type="text" name="email" id="email" placeholder="your email" required>
+            <br>
+            
+            <label for="phone">Phone</label>
+            <input type="number" name="phone" id="phone" placeholder="your phone number" required>
+            <br>
+            
+            <label for="dob">D.O.B</label>
+            <input type="date" name="dob" id="dob" placeholder="your date of birth">
+            <br>
+            <br>
+            <br>
+            <br>
+            
+            <label for="course">Choose your course: </label>
+            <p>
+                
+                <select name="course" id="course">
+                    <option value="webdev" multiple>web development</option>
+                    <option value="datascience">data science</option>
+                    <option value="ai">artificial intelligence</option>
+                    <option value="cloud">cloud</option>
+                </select>
+            </p>
+            
+            
+            <label for="hobby">Choose your hobby: </label>
+            <input list="hobbies" id="hobby" name="hobby" placeholder="Type or select a hobby">
+            
+            
+            <datalist id="hobbies">
+                <option value="Reading">
+                    <option value="Traveling">
+                        <option value="Photography">
+                            <option value="Cooking">
+                                <option value="Gardening">
+                                    <option value="Cycling">
+                                        <option value="Painting">
+                                            <option value="Music">
+                                            </datalist>
+                                            <br><br><br>
+                                            
+                                            <label for="website">Website:</label>
+                                            <input type="url" name="website" id="website" placeholder="enter your website">
+                                            <br><br><br>
+                                            <label for="year">Year</label>
+                                            <input type="checkbox" name="year" id="year" value="first">First
+                                            <input type="checkbox" name="year" id="year" value="second">Second
+                                            <input type="checkbox" name="year" id="year" value="third">Third
+                                            <input type="checkbox" name="year" id="year" value="fourth">Fourth
+                                            <br><br><br>
+                                            
+                                            <label for="subject">Subject</label>
+                                            <input type="radio" name="subject" id="subject" value="subjectmaths">Mathematics
+                                            <input type="radio" name="subject" id="subject" value="subjectscience"> Computers
+                                            <input type="radio" name="subject" id="subject" value="subjecthistory"> Social Science
+                                            <input type="radio" name="subject" id="subject" value="subjectchemistry"> Chemical Engineering
+                                            <input type="radio" name="subject" id="subject" value="subjectphysics"> Astrophysics
+                                            <br><br>
+                                            
+                                            <button type="submit">Submit</button>
+                                            <button type="reset">Reset</button>
+                                            <button type="next">Next</button>
+                                        </form>
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                    </body> </html>
