@@ -1,0 +1,58 @@
+h1{
+	color:black;
+	background-color:rgb(181, 100, 42);
+}
+
+body{
+	background-color:rgb(235, 245, 245);
+}
+
+li{
+	color:rgb(22, 17, 17);
+	background-color:rgb(161, 164, 164);
+	/* border:1px solid rgb(6, 10, 10); */
+}
+
+div{
+	background:rgb(248, 250, 250);
+}
+
+
+#important{
+    background-color: red;
+}
+
+
+.completed{
+	text-decoration: line-through;
+}
+
+
+/* li a {
+	color: white;
+	border:1px solid red;
+	background:gray;
+} */
+
+
+a[http://www.google.com]{
+	background:orange;
+	color:black;
+	border:1px solid white;
+}
+
+
+input [type="checkbox"]{
+	background: yellow;
+	color:black;
+	border:1px solid black;
+}
+
+
+
+
+
+.highlight{
+    color:purple;
+    background-color: cyan;
+}
