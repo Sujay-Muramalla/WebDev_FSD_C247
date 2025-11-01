@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Audio and Video in Divs</title>
+  <style>
+    /* 🔹 Common page styling */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f4f4f4;
+      font-family: Arial, sans-serif;
+      gap: 30px;
+    }
+
+    /* 🔹 Container 1: Audio section */
+    .div1 {
+      background-color: #e3f2fd;
+      border: 2px solid #2196f3;
+      border-radius: 12px;
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* 🔹 Container 2: Video section */
+    .div2 {
+      background-color: #fff3e0;
+      border: 2px solid #ff9800;
+      border-radius: 12px;
+      padding: 20px;
+      width: 480px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* 🔹 Media styling */
+    audio, video {
+      width: 100%;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    h2 {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🎵 Audio Container -->
+  <div class="div1">
+    <h2>🎵 Audio Player</h2>
+    <audio controls>
+      <source src="music.mp3" type="audio/mpeg">
+      <source src="music.ogg" type="audio/ogg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <!-- 🎬 Video Container -->
+  <div class="div2">
+    <h2>🎬 Video Player</h2>
+    <video controls poster="thumbnail.jpg">
+      <source src="movie.mp4" type="video/mp4">
+      <source src="movie.webm" type="video/webm">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+</body>
+</html>
