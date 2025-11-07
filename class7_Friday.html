@@ -1,47 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Friday Website</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amazon-like Grid Updated</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .grid {
+            display: grid;
+            height: 100vh;
+            width: 100vw;
+            grid-template-rows: repeat(10, 1fr);
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+        .cell {
+            border: 1px solid #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        /* ✅ HEADER */
+        .big-header {
+            grid-column: 1 / span 6;
+            grid-row: 1 / span 2;
+            background-color: tomato;
+            border: 2px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;   /* Needed for header title + search bar */
+            font-size: 24px;
+            font-weight: bold;
+            gap: 10px;
+        }
+
+        /* ✅ SEARCH BAR STYLING */
+        .search-container {
+            display: flex;
+            width: 60%;
+            max-width: 700px;
+        }
+
+        .search-input {
+            flex: 1;
+            height: 40px;
+            font-size: 16px;
+            padding: 0 12px;
+            border: 2px solid #febd69;
+            border-right: none;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+
+        .search-button {
+            height: 40px;
+            padding: 0 20px;
+            font-size: 16px;
+            background-color: #febd69;
+            border: 2px solid #febd69;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* ✅ merged block for cells 1,2,7,8 */
+        .merged {
+            grid-row: 3 / 5;
+            grid-column: 1 / 7;
+            background-color: powderblue;
+            border: 2px solid #888;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .merged1 {
+            grid-row: 7 / 9;
+            grid-column: 3 / 5;
+            background-color: yellowgreen;
+            border: 5px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        
+
+    </style>
 </head>
+
 <body>
-    
-    <div class="nav-left">
-        <script type="text/javascript">window.navmet.tmp=+new Date();</script>
-        <div id="nav-logo">
-            <a href="/-/en/ref=nav_logo" id="nav-logo-sprites" class="nav-logo-link nav-progressive-attribute" aria-label="Amazon.de" lang="en">
-                <span class="nav-sprite nav-logo-base"></span>
-                <span id="logo-ext" class="nav-sprite nav-logo-ext nav-progressive-content"></span>
-                <span class="nav-logo-locale">.de</span>
-            </a>
+    <div class="grid">
+
+        <!-- ✅ Big Header with Search Bar -->
+        <div class="big-header">
+            <div>This is big header</div>
+
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search Amazon-like..." />
+                <button class="search-button">Search</button>
+            </div>
         </div>
-        <script type="text/javascript">window.navmet.push({key:'Logo',end:+new Date(),begin:window.navmet.tmp});</script>
-        
-        <div id="nav-global-location-slot">
-            <span id="nav-global-location-data-modal-action" class="a-declarative nav-progressive-attribute" data-a-modal="{&quot;width&quot;:375, &quot;closeButton&quot;:&quot;true&quot;,&quot;popoverLabel&quot;:&quot;Choose your location&quot;, &quot;ajaxHeaders&quot;:{&quot;anti-csrftoken-a2z&quot;:&quot;hHwivSgOXCbmW2Em+pXuo0MHNR+zxwgDropXHulKvfOMAAAAAGkOAHsAAAAB&quot;}, &quot;name&quot;:&quot;glow-modal&quot;, &quot;url&quot;:&quot;/portal-migration/hz/glow/get-rendered-address-selections?deviceType=desktop&amp;pageType=Gateway&amp;storeContext=NoStoreName&amp;actionSource=desktop-modal&quot;, &quot;footer&quot;:&quot;&lt;span class=\&quot;a-declarative\&quot; data-action=\&quot;a-popover-close\&quot; data-a-popover-close=\&quot;{}\&quot;&gt;&lt;span class=\&quot;a-button a-button-primary\&quot;&gt;&lt;span class=\&quot;a-button-inner\&quot;&gt;&lt;button name=\&quot;glowDoneButton\&quot; class=\&quot;a-button-text\&quot; type=\&quot;button\&quot;&gt;Done&lt;/button&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&quot;,&quot;header&quot;:&quot;Choose your location&quot;}" data-action="a-modal">
-                <a id="nav-global-location-popover-link" role="button" tabindex="0" class="nav-a nav-a-2 a-popover-trigger a-declarative nav-progressive-attribute" href="">
-                    <div class="nav-sprite nav-progressive-attribute" id="nav-packard-glow-loc-icon"></div>
-                    <div id="glow-ingress-block">
-                        <span class="nav-line-1 nav-progressive-content" id="glow-ingress-line1">
-                            Deliver to sujay
-                        </span>
-                        <span class="nav-line-2 nav-progressive-content" id="glow-ingress-line2">
-                            Kaisersla... 67659‌
-                        </span>
-                    </div>
-                </a>
-            </span>
-            <input data-addnewaddress="add-new" id="unifiedLocation1ClickAddress" name="dropdown-selection" type="hidden" value="oommlqjsojlq" class="nav-progressive-attribute">
-            <input data-addnewaddress="add-new" id="ubbShipTo" name="dropdown-selection-ubb" type="hidden" value="oommlqjsojlq" class="nav-progressive-attribute">
-            <input id="glowValidationToken" name="glow-validation-token" type="hidden" value="hHwivSgOXCbmW2Em+pXuo0MHNR+zxwgDropXHulKvfOMAAAAAGkOAHsAAAAB" class="nav-progressive-attribute">
-            <input id="glowDestinationType" name="glow-destination-type" type="hidden" value="DEFAULT_ADDRESS" class="nav-progressive-attribute">
-        </div>
-        
-        <div id="nav-global-location-toaster-script-container" class="nav-progressive-content">
-        </div>
-        
+
+        <!-- ✅ Merged block -->
+        <div class="merged">Merged Block (1,2,7,8)</div>
+
+        <!-- Row 2 (remaining cells 3–6) -->
+        <div class="cell">3</div><div class="cell">4</div>
+        <div class="cell">5</div><div class="cell">6</div>
+
+        <!-- Row 3 remaining -->
+        <div class="cell">9</div><div class="cell">10</div>
+        <div class="cell">11</div><div class="cell">12</div>
+
+        <!-- Row 4 -->
+        <div class="cell">13</div><div class="cell">14</div><div class="cell">15</div>
+        <div class="cell">16</div><div class="cell">17</div><div class="cell">18</div>
+
+        <!-- ✅ Merged block (19,20,25,26) -->
+        <div class="merged1">Merged Block (19,20,25,26)</div>
+
+        <!-- Row 5 -->
+        <div class="cell">21</div><div class="cell">22</div>
+        <div class="cell">23</div><div class="cell">24</div>
+
+        <!-- Row 6 -->
+        <div class="cell">27</div><div class="cell">28</div>
+        <div class="cell">29</div><div class="cell">30</div>
+
+        <!-- Row 7 -->
+        <div class="cell">31</div><div class="cell">32</div><div class="cell">33</div>
+        <div class="cell">34</div><div class="cell">35</div><div class="cell">36</div>
+
+        <!-- Row 8 -->
+        <div class="cell">37</div><div class="cell">38</div><div class="cell">39</div>
+        <div class="cell">40</div><div class="cell">41</div><div class="cell">42</div>
+
+        <!-- Row 9 -->
+        <div class="cell">43</div><div class="cell">44</div><div class="cell">45</div>
+        <div class="cell">46</div><div class="cell">47</div><div class="cell">48</div>
+
     </div>
-    
 </body>
 </html>
