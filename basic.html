@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid</title>
+
+    <style>
+        .container1{
+            margin:0;
+            padding:0;
+            display:grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows:1fr 1fr 1fr;
+            
+        }
+
+        .container2{
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 50% 50%;
+        }
+        
+        .container3{
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 50% 50%;
+        }
+
+        .container4{
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 50% 50%;
+        }
+
+        .container5{
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 50% 50%;
+        }
+
+        .container6{
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 50% 50%;
+        }
+
+        .container7{
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 50% 50%;
+        }
+
+        .container8{
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 50% 50%;
+        }
+
+        .container9{
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 50% 50%;
+        }
+
+        .container10{
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 50% 50%;
+        }
+
+
+        .item1{
+            background:lightblue
+            border: 1px solid black;
+        }
+
+        .item2{
+            background:tomato;
+            border: 1px solid black;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+      <!-- <div class="container1">
+          <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+          <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 2">Hello 2</div>
+          <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 3">Hello 3</div>
+          <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 4">Hello 4</div>
+          <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 5">Hello 5</div>
+          <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 6">Hello 6</div>
+          <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 7">Hello 7</div>
+          <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 8">Hello 8</div>
+          <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 9">Hello 9</div>
+      </div> -->
+
+
+      <div class="container1">
+        <div class="container2">
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+        </div>
+        <div class="container3">
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+        </div>
+        <div class="container4">
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+        </div>
+        <div class="container5">
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+        </div>
+        <div class="container6">
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+        </div>
+        <div class="container7">
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+        </div>
+        <div class="container8">
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+        </div>
+        <div class="container9">
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+        </div>
+
+        <div class="container10">
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+            <div class="item1"> <img src="assets\img_girl.jpg" alt="Hello 1">Hello 1</div>
+        </div>
+      </div>
+
+</body>
+</html>

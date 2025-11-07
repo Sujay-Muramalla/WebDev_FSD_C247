@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Full-Screen 3x3 Grid of 2x2 Images</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Outer grid: 3x3 filling the viewport */
+    .grid-wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      width: 100vw;
+      height: 100vh;
+    }
+
+    /* Each of the 9 big squares is also a 2x2 grid */
+    .grid-item {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      border: 1px solid #222;
+      overflow: hidden;
+    }
+
+    /* Each small image fills its cell */
+    .grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<!--✅ Now it fills the entire screen — every image tile perfectly distributed, no blank space, no centering.
+If you resize the browser, the grid dynamically adjusts to the viewport.
+
+Would you like me to make it responsive so it stacks differently on mobile (like 2×2 or 1×1)?-->
+
+
+  <div class="grid-wrapper">
+    <!-- 9 big squares, each with 4 images -->
+    <div class="grid-item">
+      <img src="https://picsum.photos/seed/1/300" alt="">
+      <img src="https://picsum.photos/seed/2/300" alt="">
+      <img src="https://picsum.photos/seed/3/300" alt="">
+      <img src="https://picsum.photos/seed/4/300" alt="">
+    </div>
+
+    <div class="grid-item">
+      <img src="https://picsum.photos/seed/5/300" alt="">
+      <img src="https://picsum.photos/seed/6/300" alt="">
+      <img src="https://picsum.photos/seed/7/300" alt="">
+      <img src="https://picsum.photos/seed/8/300" alt="">
+    </div>
+
+    <div class="grid-item">
+      <img src="https://picsum.photos/seed/9/300" alt="">
+      <img src="https://picsum.photos/seed/10/300" alt="">
+      <img src="https://picsum.photos/seed/11/300" alt="">
+      <img src="https://picsum.photos/seed/12/300" alt="">
+    </div>
+
+    <div class="grid-item">
+      <img src="https://picsum.photos/seed/13/300" alt="">
+      <img src="https://picsum.photos/seed/14/300" alt="">
+      <img src="https://picsum.photos/seed/15/300" alt="">
+      <img src="https://picsum.photos/seed/16/300" alt="">
+    </div>
+
+    <div class="grid-item">
+      <img src="https://picsum.photos/seed/17/300" alt="">
+      <img src="https://picsum.photos/seed/18/300" alt="">
+      <img src="https://picsum.photos/seed/19/300" alt="">
+      <img src="https://picsum.photos/seed/20/300" alt="">
+    </div>
+
+    <div class="grid-item">
+      <img src="https://picsum.photos/seed/21/300" alt="">
+      <img src="https://picsum.photos/seed/22/300" alt="">
+      <img src="https://picsum.photos/seed/23/300" alt="">
+      <img src="https://picsum.photos/seed/24/300" alt="">
+    </div>
+
+    <div class="grid-item">
+      <img src="https://picsum.photos/seed/25/300" alt="">
+      <img src="https://picsum.photos/seed/26/300" alt="">
+      <img src="https://picsum.photos/seed/27/300" alt="">
+      <img src="https://picsum.photos/seed/28/300" alt="">
+    </div>
+
+    <div class="grid-item">
+      <img src="https://picsum.photos/seed/29/300" alt="">
+      <img src="https://picsum.photos/seed/30/300" alt="">
+      <img src="https://picsum.photos/seed/31/300" alt="">
+      <img src="https://picsum.photos/seed/32/300" alt="">
+    </div>
+
+    <div class="grid-item">
+      <img src="https://picsum.photos/seed/33/300" alt="">
+      <img src="https://picsum.photos/seed/34/300" alt="">
+      <img src="https://picsum.photos/seed/35/300" alt="">
+      <img src="https://picsum.photos/seed/36/300" alt="">
+    </div>
+  </div>
+</body>
+</html>
