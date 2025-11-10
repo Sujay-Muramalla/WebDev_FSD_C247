@@ -1,0 +1,103 @@
+:root{
+    --primary: 3b82f6;
+    --secondary: f59e0b;
+    --bg: #f9fafb;
+    --text:#111827;
+    --muted:#6b7280;
+    --radius:10px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:"poppins",sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height:1.5;
+}
+
+header {
+    background: white;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 15px 40px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header.logo{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary)
+}
+
+header nav ul{
+    display: flex;
+    list-style:none;
+    gap: 25px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: var(--primary);
+}
+
+header .icons i{
+    font-size:1.2rem;
+    margin-left:15px;
+    cursor:pointer;
+    color: var(--muted);
+}
+
+.hero button:hover{
+    transform: scale(1.05);
+    background: var(--secondary);
+    color: white;
+}
+
+.products{
+    padding: 50px 60px;
+}
+
+.product h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom:40px;
+}
+
+.product:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.product img{
+    width: 100%;
+    height:200px;
+    object-fit: cover;
+}
+
+.product-content{
+    padding: 15px;
+}
+
+.product-content h3{
+    font-size: 1.1rem;
+    margin-bottom:8px;
+}
+
+.product-content p{
+    
+}
