@@ -1,0 +1,231 @@
+
+/* ---------- GLOBAL STYLES ---------- */
+:root {
+  --primary: #3b82f6;
+  --secondary: #f97316;
+  --bg: #f9fafb;
+  --text: #111827;
+  --muted: #6b7280;
+  --radius: 10px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* ---------- HEADER ---------- */
+header {
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+header .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+header nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+header nav ul li a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+header nav ul li a:hover {
+  color: var(--primary);
+}
+header .icons i {
+  font-size: 1.2rem;
+  margin-left: 15px;
+  cursor: pointer;
+  color: var(--text);
+}
+header .icons i:hover {
+  color: var(--primary);
+}
+
+/* ---------- HERO SECTION ---------- */
+.hero {
+  background: linear-gradient(to right, #3b82f6, #2563eb);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+}
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+.hero button {
+  background: orange;
+  color: var(--primary);
+  border: none;
+  padding: 12px 30px;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.hero button:hover {
+  transform: scale(1.05);
+  background: var(--secondary);
+  color: white;
+}
+
+/* ---------- PRODUCT GRID ---------- */
+.products {
+  padding: 50px 60px;
+}
+.products h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+}
+.product {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+.product img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.product-content {
+  padding: 15px;
+}
+.product-content h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.product-content p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.product-content button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.product-content button:hover {
+  background: var(--secondary);
+}
+
+/* ---------- FORM SECTION ---------- */
+.contact {
+  background: #fff;
+  margin: 60px 60px;
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+.contact h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+form {
+  display: grid;
+  gap: 15px;
+}
+label {
+  font-weight: 600;
+}
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+input:focus, textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+button.submit-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: 0.3s;
+}
+button.submit-btn:hover {
+  background: var(--secondary);
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  background: #111827;
+  color: #f3f4f6;
+  text-align: center;
+  padding: 25px 15px;
+}
+footer p {
+  font-size: 0.9rem;
+}
+footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+footer ul li a {
+  color: #f3f4f6;
+  text-decoration: none;
+}
+footer ul li a:hover {
+  color: var(--secondary);
+}
+
+/* ---------- MEDIA QUERIES ---------- */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .products {
+    padding: 30px 20px;
+  }
+}

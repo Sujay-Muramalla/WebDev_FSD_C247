@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ShopEase - Your Stylish Store</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+
+<header>
+  <div class="logo"><i class="fa-solid fa-bag-shopping"></i> ShopEase</div>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="icons">
+    <i class="fa-solid fa-user"></i>
+    <i class="fa-solid fa-heart"></i>
+    <i class="fa-solid fa-cart-shopping"></i>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Discover Your Style</h1>
+  <p>Trendy, comfortable, and affordable fashion for everyone.</p>
+  <button>Shop Now</button>
+</section>
+
+<section class="products">
+  <h2>Our Featured Products</h2>
+  <div class="product-grid">
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Shoes">
+      <div class="product-content">
+        <h3>Casual Sneakers</h3>
+        <p>Comfortable and stylish sneakers for everyday wear.</p>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="Watch">
+      <div class="product-content">
+        <h3>Luxury Camera</h3>
+        <p>Elegant camera to elevate your look.</p>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+    <div class="product">
+      <img src="assets/leathers.jpeg" alt="Bag">
+      <div class="product-content">
+        <h3>Leather Handbag</h3>
+        <p>Premium leather handbag with modern design.</p>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+    <div class="product">
+      <img src="assets/denim-jacket.jpg" alt="Jacket">
+      <div class="product-content">
+        <h3>Denim Jacket</h3>
+        <p>Classic blue denim jacket with a modern twist.</p>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <h2>Contact Us</h2>
+  <form>
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="query">Query Type</label>
+    <select id="query" name="query">
+      <option>Order Issue</option>
+      <option>Payment Problem</option>
+      <option>Return/Refund</option>
+      <option>Other</option>
+    </select>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
+
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+</section>
+
+<footer>
+  <ul>
+    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="#">Terms</a></li>
+    <li><a href="#">Support</a></li>
+  </ul>
+  <p>&copy; 2025 ShopEase. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
