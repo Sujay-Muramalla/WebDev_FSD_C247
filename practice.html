@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>My Site — Home</title>
+    <meta name="description" content="Short summary for search engines" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- <script defer src="app.js"></script> -->
+    
+    <style>
+        .table-container{
+            color: black;
+            background-color: powderblue;
+            border:2px solid black;
+        }
+        .table-style{
+            border:2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Site</h1>
+        <nav><!-- links --></nav>
+    </header>
+    <main>
+        <article>
+            <h2>Article title</h2>
+            <p>Paragraph text <em>emphasized text</em> and <strong>important text</strong>.</p>
+        </article>
+        <br><br><br>
+        
+        <div class="table-container">
+            <h2>Event Timeline</h2>
+            <table border="1" class="table-style">
+                <caption>Monthly Expenses</caption>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rent</td>
+                        <td>$1000</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Utilities</td>
+                        <td>$150</td>
+                    </tr>
+                    <tr>
+                        <td>$50</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Total: $1200</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+        
+        
+        
+        
+    </main>
+    <footer>© 2025 My Site</footer>
+</body>
+</html>
