@@ -1,4 +1,53 @@
 <!DOCTYPE html>
+<!--
+ELI10 WALKTHROUGH (Read me like a comic strip!)
+
+STEP 1 — COLORS & BASICS
+Think of a coloring box. We put our favorite colors in small jars (CSS variables).
+Later, instead of saying “use #0f0f0f”, we say “use the bg jar”.
+Why? Easier to change the whole theme by changing one jar.
+
+STEP 2 — PAGE LAYOUT GRID
+Imagine a page made of Lego plates. We build two big rows:
+• Top row: the header (the bar that stays at the top).
+• Bottom row: everything else.
+Then inside the bottom part, we make two columns:
+• Left: the sidebar (the tall menu).
+• Right: the main area (the videos).
+
+STEP 3 — HEADER (TOP BAR)
+The header is like a tool belt:
+• Left: a brand area with a hamburger icon (three lines) and our name.
+• Middle: a big search box with a button.
+• Right: action icons (create, bell) and a tiny profile circle.
+It “sticks” to the top so it doesn’t scroll away.
+
+STEP 4 — SIDEBAR (LEFT MENU)
+The sidebar is a list of buttons. Each button has a small picture (icon)
+and a word (like “Home” or “Explore”). When you hover your mouse, it gets a darker background.
+
+STEP 5 — MAIN AREA (VIDEO GRID)
+The main area starts with “chips” — little category pills like All, Music, Gaming.
+Below that is a grid of video cards. Each card has:
+• A rectangle picture (thumbnail) that always stays 16:9 (like a TV).
+• A small time sticker in the corner (duration).
+• Under it, a little circle (channel picture), a bold title, and grey info text.
+The grid automatically makes as many columns as will fit your screen.
+
+STEP 6 — RESPONSIVE (WORKS ON SMALL SCREENS)
+When the screen is narrow:
+• The sidebar becomes skinny (icons only) so it doesn’t eat space.
+• The header stacks neatly so the search still fits.
+This means the layout is friendly on phones and tablets.
+
+HOW TO EXTEND (BONUS IDEAS):
+• Add more <article class="card"> blocks to get more videos.
+• Swap the images with your own. Keep the 16:9 shape for neat rows.
+• Change theme: try a light mode by flipping the colors in :root.
+• Make the chips actually filter (needs JavaScript, not included here).
+
+You can delete this comment any time — it doesn’t affect the page.
+-->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
