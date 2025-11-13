@@ -4,28 +4,86 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>All Types of Card Designs</title>
+
+  <!-- Icon set for header/footer social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
+    /* ========= Base + Layout Tokens ========= */
     * {
       box-sizing: border-box;
       font-family: "Poppins", sans-serif;
     }
+    :root{
+      /* change this if you tweak header size */
+      --header-h: 100px;
+    }
 
+    /* ========= Page Background + Body Spacing ========= */
     body {
       background: #133c79;
       margin: 0;
-      padding: 40px;
+
+      /* IMPORTANT: space at the top so content doesn't sit under the fixed header */
+      padding: calc(var(--header-h) + 20px) 40px 40px;
     }
 
+    /* ========= Fixed Header ========= */
+    header {
+      position: fixed;       /* stays at the top on scroll */
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--header-h);
+      z-index: 1000;         /* above cards */
+      background: #0d2a56;   /* dark blue strip */
+      color: #fff;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+
+      /* subtle shadow so it looks elevated */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    header .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: .5px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      margin: 0;
+      padding: 0;
+    }
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color .3s;
+    }
+    header nav a:hover { color: #ffcc00; }
+
+    /* ========= Title ========= */
     h1 {
       text-align: center;
-      margin-bottom: 30px;
-      color: #222;
+      margin: 10px 0 30px;   /* smaller top margin — header already adds space */
+      color: #fff;
     }
 
+    /* ========= Card Grid Wrapper ========= */
     .card-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 25px;
+      /* extra bottom space so footer never feels cramped */
+      padding-bottom: 40px;
     }
 
     /* ---------- 1. Basic Card ---------- */
@@ -36,10 +94,7 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       transition: 0.3s ease;
     }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
+    .card:hover { transform: translateY(-5px); }
 
     /* ---------- 2. Image Card ---------- */
     .image-card {
@@ -49,16 +104,12 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       transition: 0.3s;
     }
-
     .image-card img {
       width: 100%;
       height: 180px;
       object-fit: cover;
     }
-
-    .image-card .content {
-      padding: 15px;
-    }
+    .image-card .content { padding: 15px; }
 
     /* ---------- 3. Profile Card ---------- */
     .profile-card {
@@ -68,23 +119,12 @@
       padding: 20px;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     }
-
     .profile-card img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 10px;
+      width: 100px; height: 100px; border-radius: 50%;
+      object-fit: cover; margin-bottom: 10px;
     }
-
-    .profile-card h3 {
-      margin: 10px 0 5px;
-    }
-
-    .profile-card p {
-      font-size: 14px;
-      color: gray;
-    }
+    .profile-card h3 { margin: 10px 0 5px; }
+    .profile-card p { font-size: 14px; color: gray; }
 
     /* ---------- 4. Product Card ---------- */
     .product-card {
@@ -94,103 +134,95 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       transition: 0.3s;
     }
-
     .product-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
+      width: 100%; height: 200px; object-fit: cover;
     }
-
-    .product-card .details {
-      padding: 15px;
-    }
-
+    .product-card .details { padding: 15px; }
     .product-card button {
-      background: #3b82f6;
-      color: #fff;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
+      background: #3b82f6; color: #fff; border: none;
+      padding: 10px 15px; border-radius: 8px; cursor: pointer; transition: 0.3s;
     }
-
-    .product-card button:hover {
-      background: #1d4ed8;
-    }
+    .product-card button:hover { background: #1d4ed8; }
 
     /* ---------- 5. Hover Effect Card ---------- */
     .hover-card {
       background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white;
-      border-radius: 15px;
-      padding: 20px;
-      transition: 0.3s ease;
-      position: relative;
-      overflow: hidden;
+      color: white; border-radius: 15px; padding: 20px;
+      position: relative; overflow: hidden;
     }
-
     .hover-card::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.2);
-      transition: 0.5s;
+      content: ""; position: absolute; inset: 0;
+      left: -100%; background: rgba(255,255,255,0.2); transition: .5s;
     }
-
-    .hover-card:hover::after {
-      left: 100%;
-    }
+    .hover-card:hover::after { left: 100%; }
 
     /* ---------- 6. Glassmorphic Card ---------- */
     .glass-card {
       background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.3);
-      color: #fff;
-      border-radius: 15px;
-      padding: 20px;
-      text-align: center;
+      color: #fff; border-radius: 15px; padding: 20px; text-align: center;
       background-image: linear-gradient(to bottom right, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
-    }
-
-    body.dark-bg {
-      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1800&auto=format&fit=crop') center/cover;
-      color: #fff;
     }
 
     /* ---------- 7. Gradient Card ---------- */
     .gradient-card {
       background: linear-gradient(135deg, #ff9966, #ff5e62);
-      color: white;
-      border-radius: 15px;
-      padding: 25px;
+      color: white; border-radius: 15px; padding: 25px;
       box-shadow: 0 8px 16px rgba(255, 94, 98, 0.3);
     }
 
     /* ---------- 8. Neumorphic Card ---------- */
     .neumorphic-card {
-      background: #e0e0e0;
-      border-radius: 15px;
+      background: #e0e0e0; border-radius: 15px;
       box-shadow: 8px 8px 15px #b8b8b8, -8px -8px 15px #ffffff;
-      padding: 20px;
-      text-align: center;
+      padding: 20px; text-align: center;
     }
+    .neumorphic-card h3 { margin: 0; color: #333; }
 
-    .neumorphic-card h3 {
-      margin: 0;
-      color: #333;
+    /* ========= Footer ========= */
+    footer {
+      background: #0b1f42;
+      color: #ddd;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    footer .social-icons { margin-bottom: 10px; }
+    footer .social-icons i {
+      margin: 0 10px; color: #fff; cursor: pointer; transition: color .3s;
+    }
+    footer .social-icons i:hover { color: #ffcc00; }
+    footer p { font-size: .9rem; margin: 0; }
+
+    /* ========= Small Screens Tweaks ========= */
+    @media (max-width: 768px){
+      header { padding: 0 16px; }
+      body { padding: calc(var(--header-h) + 12px) 16px 24px; }
+      header nav ul { gap: 14px; }
     }
   </style>
 </head>
 <body>
-  <h1>Different Types of Card Designs</h1>
+  <!-- ===== Fixed Header Bar ===== -->
+  <header>
+    <div class="logo"><i class="fa-solid fa-layer-group"></i> CardGallery</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#cards">Cards</a></li>
+        <li><a href="#">Tutorials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
+  <!-- Page Title -->
+  <h1 id="cards">Different Types of Card Designs</h1>
+
+  <!-- ===== Cards Grid ===== -->
   <div class="card-container">
-
     <div class="card">
       <h3>Basic Card</h3>
       <p>This is a simple card with a clean shadow and rounded corners.</p>
@@ -238,7 +270,17 @@
       <h3>Neumorphic Card</h3>
       <p>Soft, embossed look created using subtle shadows.</p>
     </div>
-
   </div>
+
+  <!-- ===== Footer ===== -->
+  <footer id="contact">
+    <div class="social-icons">
+      <i class="fa-brands fa-facebook"></i>
+      <i class="fa-brands fa-instagram"></i>
+      <i class="fa-brands fa-x-twitter"></i>
+      <i class="fa-brands fa-linkedin"></i>
+    </div>
+    <p>&copy; 2025 CardGallery. All rights reserved.</p>
+  </footer>
 </body>
 </html>
