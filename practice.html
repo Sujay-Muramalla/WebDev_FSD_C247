@@ -1,365 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShopEase - Your Stylish Store</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="style.css" />
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
     <style>
-      /* ---------- GLOBAL STYLES ---------- */
-      /*:root {
-        --primary: #3b82f6;
-        --secondary: #f97316;
-        --bg: #f9fafb;
-        --text: #111827;
-        --muted: #6b7280;
-        --radius: 10px;
-      }*/
+        table {
+            /*border:2px solid dodgerblue;*/
+            width:100%;
+            border-collapse: collapse;
 
-      :root {
-        --primary: #0f0f0f; /* page background */
-        --secondary: #181818; /* boxes behind videos */
-        --bg: #f1f1f1; /* normal text */
-        --text: #aaaaaa; /* softer text */
-        --muted: #ff0033; /* pretend brand color */
-        --radius: 12px; /* rounded corners */
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      /*body {
-        font-family: "Poppins", sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.5;
-      }*/
-
-      body {
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial,
-          sans-serif;
-        background: var(--bg);
-        color: var(--text);
-      }
-
-      /* ---------- HEADER ---------- */
-      .header {
-        background: white;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 40px;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-      }
-      .header .brand {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--primary);
-      }
-
-      .header .actions {
-        display: flex;
-        gap: 16px;
-        justify-content: flex-end;
-        align-items: center;
-      }
-
-      .search {
-        display: grid;
-        grid-template-columns: 1fr 56px;
-        gap: 8px;
-        align-items: center;
-        max-width: 720px;
-        margin: 0 auto;
-        width: 100%;
-      }
-      .search input {
-        width: 100%;
-        padding: 10px 14px;
-        border-radius: 20px 0 0 20px;
-        border: 1px solid #303030;
-        background: #121212;
-        color: var(--text);
-      }
-
-      .icon-btn {
-        width: 36px;
-        height: 36px;
-        display: grid;
-        place-items: center;
-        border-radius: 50%;
-        background: transparent;
-        border: 0;
-        color: var(--text);
-        cursor: pointer;
-      }
-      .icon-btn:hover {
-        background: #232323;
-      }
-
-      .sidebar {
-        overflow-y: auto;
-        border-right: 1px solid #242424;
-        padding: 10px;
-      }
-      .side-item {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        padding: 10px 12px;
-        border-radius: 10px;
-        color: var(--text);
-      }
-      .side-item:hover {
-        background: #222;
-      }
-      .side-title {
-        font-size: 0.92rem;
-      }
-
-      /* ---------- PRODUCT GRID ---------- */
-      .products {
-        padding: 50px 60px;
-      }
-      .products h2 {
-        text-align: center;
-        font-size: 2rem;
-        margin-bottom: 40px;
-      }
-      /*.product-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-        gap: 25px;
-      }*/
-
-      .product-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 18px;
-      }
-
-      .product {
-        background: white;
-        border-radius: var(--radius);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        overflow: hidden;
-        transition: transform 0.3s, box-shadow 0.3s;
-      }
-      .product:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-      }
-      .product img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-      }
-      .product-content {
-        padding: 15px;
-      }
-      .product-content h3 {
-        font-size: 1.1rem;
-        margin-bottom: 8px;
-      }
-      .product-content p {
-        font-size: 0.9rem;
-        color: var(--muted);
-        margin-bottom: 10px;
-      }
-      .product-content button {
-        background: var(--primary);
-        color: white;
-        border: none;
-        padding: 8px 15px;
-        border-radius: var(--radius);
-        cursor: pointer;
-        transition: 0.3s;
-      }
-      .product-content button:hover {
-        background: var(--secondary);
-      }
-
-      /* ---------- FOOTER ---------- */
-      footer {
-        background: #111827;
-        color: #f3f4f6;
-        text-align: center;
-        padding: 25px 15px;
-      }
-      footer p {
-        font-size: 0.9rem;
-      }
-      footer ul {
-        list-style: none;
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        margin-bottom: 15px;
-      }
-      footer ul li a {
-        color: #f3f4f6;
-        text-decoration: none;
-      }
-      footer ul li a:hover {
-        color: var(--secondary);
-      }
-
-      /* ---------- MEDIA QUERIES ---------- */
-      /*@media (max-width: 768px) {
-        header {
-          flex-direction: column;
-          gap: 10px;
         }
-        .hero h1 {
-          font-size: 2rem;
-        }
-        .products {
-          padding: 30px 20px;
-        }
-      }*/
 
-      @media (max-width: 900px) {
-        .shell {
-          grid-template-columns: 72px 1fr;
+        .header, .footer{
+            background-color:azure;
+            color:white;
+            padding:20px
+
         }
-        .side-title {
-          display: none;
-        } /* keep icons only */
-        .section-label {
-          display: none;
+
+
+        td{
+            text-align: center;
+            border: 2px solid tomato;
         }
-      }
-      @media (max-width: 640px) {
-        .header {
-          grid-template-columns: 1fr;
-          gap: 8px;
-          height: auto;
-          padding-bottom: 12px;
+        th{
+            border: 2px solid black;
         }
-        .search {
-          max-width: none;
-        }
-      }
+        
     </style>
-  </head>
-  <body>
-    <header class="header">
-      <div class="brand">
-        <i class="fa-solid fa-bars"></i>
-        <span> Stube</span>
-      </div>
-      <form class="search" role="search" aria-label="Search videos">
-        <input type="text" placeholder="Search" aria-label="Search" />
-        <button type="submit" aria-label="Search">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </form>
-
-      <div class="actions">
-        <button class="icon-btn" aria-label="Create">
-          <i class="fa-regular fa-square-plus"></i>
-        </button>
-        <button class="icon-btn" aria-label="Notifications">
-          <i class="fa-regular fa-bell"></i>
-        </button>
-        <span class="avatar" title="You"></span>
-      </div>
-
-
-      
-    </header>
-
-    <div class="shell">
-      <aside class="sidebar" aria-label="Sidebar navigation">
-        <a class="side-item" href="#"
-          ><i class="fa-solid fa-house"></i
-          ><span class="side-title">Home</span></a
-        >
-        <a class="side-item" href="#"
-          ><i class="fa-regular fa-compass"></i
-          ><span class="side-title">Explore</span></a
-        >
-        <a class="side-item" href="#"
-          ><i class="fa-solid fa-bolt"></i
-          ><span class="side-title">Shorts</span></a
-        >
-        <a class="side-item" href="#"
-          ><i class="fa-regular fa-circle-play"></i
-          ><span class="side-title">Subscriptions</span></a
-        >
-      </aside>
-
-      <main class="main">
-        <nav class="chips" aria-label="Filters">
-          <button class="chip active">All</button>
-          <button class="chip">Music</button>
-          <button class="chip">Programming</button>
-          <button class="chip">Gaming</button>
-          <button class="chip">News</button>
-          <button class="chip">Live</button>
-        </nav>
-        <section class="products">
-          <h2>Explore videos here...</h2>
-          <div class="product-grid">
-            <div class="product">
-              <img
-                src="https://images.unsplash.com/photo-1542291026-7eec264c27ff"
-                alt="Shoes"
-              />
-              <div class="product-content">
-                <h3>Casual Sneakers</h3>
-                <p>Comfortable and stylish sneakers for everyday wear.</p>
-                <button>Click</button>
-              </div>
-            </div>
-            <div class="product">
-              <img
-                src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f"
-                alt="Watch"
-              />
-              <div class="product-content">
-                <h3>Luxury Camera</h3>
-                <p>Elegant camera to elevate your look.</p>
-                <button>Click</button>
-              </div>
-            </div>
-            <div class="product">
-              <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop" alt="Bag" />
-              <div class="product-content">
-                <h3>Make delicious new dish</h3>
-                <p>Delicious Dishes for you..</p>
-                <button>Click</button>
-              </div>
-            </div>
-            <div class="product">
-              <img src="https://images.unsplash.com/photo-1534665482403-a909d0d97c67?q=80&w=1200&auto=format&fit=crop" alt="Jacket" />
-              <div class="product-content">
-                <h3>Learn Programming...</h3>
-                <p>Improve your programming skills...</p>
-                <button>Click</button>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-    </div>
-    <footer>
-      <ul>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms</a></li>
-        <li><a href="#">Support</a></li>
-      </ul>
-      <p>&copy; 2025 ShopEase. All rights reserved.</p>
-    </footer>
-  </body>
+</head>
+<body>
+    <table>
+        <tr>
+            <td class="header" colspan="2"><h1>This is the title</h1></td>
+        </tr>
+        <tr>
+            <td class="nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contacts</a></li>
+                </ul>
+            </td>
+            <td class="main">
+                <h2>This is heading for main..</h2>
+                <p>This is paragraph inside the main classs</p>
+                <p>This is paragraph inside the main classs</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="footer" colspan="2">Footer</td>
+            
+        </tr>
+    </table>
+</body>
 </html>
