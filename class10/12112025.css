@@ -1,0 +1,150 @@
+/* ---------- GLOBAL STYLES ---------- */
+:root {
+  --primary:tomato;
+  --secondary: #f54545;
+  --bg: #f9fafb;
+  --text: #111827;
+  --muted: #6b7280;
+  --radius: 10px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* ---------- HEADER ---------- */
+header {
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+
+header img{
+    width: 50px;
+    height: auto;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+header nav ul{
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+header .brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+
+}
+
+.search-bar {
+  display:flex;
+  width: 500px;
+  border-radius: 4px;
+  background: #f5f5f6;
+  padding: 8px;
+  /*margin: 15px;*/
+  margin-left: 20px;
+  margin-right: 50px;
+}
+.search-bar input {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 89%;
+}
+.search-bar i {
+  font-size: 14px;
+  color: #696e79;
+  margin: 5px 15px;
+}
+
+.nav-right{
+    display: flex;
+    justify-content: center;
+}
+
+.icons{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+
+.icons i{
+    margin: 6px;
+}
+
+.Products h1{
+    color: dodgerblue;
+    margin: 30px;
+}
+
+.Products {
+padding: 50px 60px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+}
+.product {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+.product img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.product-content {
+  padding: 15px;
+}
+.product-content h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.product-content p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.product-content button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.product-content button:hover {
+  background: var(--secondary);
+}

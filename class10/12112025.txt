@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="1211Wednesday.css">
+
+
+    <title>Myntra Something</title>
+</head>
+<body>
+    <Header>
+        <nav>
+
+    <div class="Brand">
+    <img src="C:/Users/djmun/Downloads/myntralogo.avif">
+    </div>
+
+<div>
+
+    <ul>
+    <li><a href="#">Men</a></li>
+    <li><a href="#">Women</a></li>
+    <li><a href="#">Kids</a></li>
+    <li><a href="#">Beauty</a></li>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Studio</a></li>
+    </ul>
+</div>
+
+
+    <div class="nav-right">
+        <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search for products,brands and more">
+    </div>
+
+    <!--<input placeholder="Search for products, brands and more" class="desktop-searchBar" value="">-->
+
+    <!--<input type="search" placeholder="Search for Products Brand and More">-->
+    
+
+<div class="icons">
+    <i class="fa-solid fa-user"></i>
+    <i class="fa-solid fa-heart"></i>
+    <i class="fa-solid fa-cart-shopping"></i>
+</div>
+
+</nav>
+</header>
+
+<section>
+
+<div>
+        <img width="1300" height="auto" src="C:/Users/djmun/Downloads/Screenshot 2025-11-10 030057.png">
+        
+    </div>
+
+<div>
+    <img width="1300" height="auto" src="C:/Users/djmun/Downloads/section pic 2.png">
+</div>
+
+<section class="products">
+    <h1> Rising Stars</h1>
+
+    <div class="product-grid">
+        <div class="product">
+            <img src="C:/Users/djmun/Downloads/demin.jpeg" alt="Jacket">
+            <div class="product-content">
+                <p>Awesome Jenes</p>
+                <button>Add to Cart</button>
+            </div>
+
+        </div>
+
+        
+        <div class="product">
+            <img src="C:/Users/djmun/Downloads/demin.jpeg" alt="Jacket">
+            <div class="product-content">
+                <p>Awesome Jenes</p>
+                <button>Add to Cart</button>
+            </div>
+
+
+        </div>
+
+        
+        <div class="product">
+            <img src="C:/Users/djmun/Downloads/demin.jpeg" alt="Jacket">
+            <div class="product-content">
+                <p>Awesome Jenes</p>
+                <button>Add to Cart</button>
+            </div>
+
+        </div>
+
+</section>  
+
+
+<footer>
+  <ul>
+    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="#">Terms</a></li>
+    <li><a href="#">Support</a></li>
+  </ul>
+  <p>&copy; 2025 Myntra. All rights reserved.</p>
+</footer>
+</body>
+</html>
