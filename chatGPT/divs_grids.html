@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .card {
+        border: 1px solid #ddd; /* a thin outline so you can see the box */
+        padding: 16px; /* space inside the box */
+        border-radius: 10px; /* rounded corners */
+        background: #fff; /* white background */
+      }
+
+      .grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h3>Product Title</h3>
+      <p>Short description…</p>
+      <button>Add to Cart</button>
+    </div>
+    <div class="card">
+      <h3>Product Title</h3>
+      <p>Short description…</p>
+      <button>Add to Cart</button>
+    </div>
+    <div class="card">
+      <h3>Product Title</h3>
+      <p>Short description…</p>
+      <button>Add to Cart</button>
+    </div>
+    <div class="card">
+      <h3>Product Title</h3>
+      <p>Short description…</p>
+      <button>Add to Cart</button>
+    </div>
+
+    <div class="grid">
+      <div class="card">A</div>
+      <div class="card">B</div>
+      <div class="card">C</div>
+      <div class="card">D</div>
+      <div class="card">D</div>
+      <div class="card">D</div>
+      <div class="card">D</div>
+    </div>
+  </body>
+</html>
