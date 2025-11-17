@@ -1,0 +1,24 @@
+{
+  "name": "webdev_fsd_c247",
+  "version": "1.0.0",
+  "description": "this repository is for Full Stack Development course from Career 247",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sujay-Muramalla/WebDev_FSD_C247.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Sujay-Muramalla/WebDev_FSD_C247/issues"
+  },
+  "homepage": "https://github.com/Sujay-Muramalla/WebDev_FSD_C247#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
