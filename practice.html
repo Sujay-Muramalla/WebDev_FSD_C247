@@ -1,142 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <!-- <p id="arrayDemo"></p> -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
 
-    <script>
-      players = [
-        "Sachin Tendulkar ",
-        " Rahul Dravid",
-        "Virat Kohli  ",
-        "Rohit  Sharma",
-        "M.S Dhoni ",
-        "   Rishabh Pant",
-        "Anil Kumble",
-        "Zaheer   Khan  ",
-        "Javagal Srinath",
-      ];
+<!-- // Create a form using HTML and CSS, and add validation using JavaScript.
 
-      console.log("---------------------------------")
-      console.log("length of string......")
-      console.log("---------------------------------")
-      for (var i = 0; i < players.length; i++) {
-        //var msg = "Player " + (i+1) + ": " + players[i];
-        
-        console.log(players[i] + ":" + players[i].length);
-      }
-      
-      console.log("---------------------------------")
-      console.log("to upper case....")
-      console.log("---------------------------------")
-      for (var i = 0; i < players.length; i++) {
-        //var msg = "Player " + (i+1) + ": " + players[i];
-        
-        console.log(players[i] + ":" + players[i].toUpperCase());
-      }
-      
-      console.log("---------------------------------")
-      console.log ("to lower case....")
-      console.log("---------------------------------")
-      for (var i = 0; i < players.length; i++) {
-        //var msg = "Player " + (i+1) + ": " + players[i];
-        
-        console.log(players[i] + ":" + players[i].toLowerCase());
-      }
-      
-      
-      console.log("---------------------------------")
-      console.log ("Trimming.....")
-      console.log("---------------------------------")
-      for (var i = 0; i < players.length; i++) {
-        //var msg = "Player " + (i+1) + ": " + players[i];
+// Build a good-looking UI with a user registration form.
+// Apply the following constraints on each field:
 
-        console.log(players[i] + ":" + players[i].trim());
-      }
-      
-      
-      // b = ['file','edit','view','navigate','code','refactor','run','tools','vcs','window','help']
-      // STRING METHODS
-      // .length
-      // .toUpperCase()
-      // .toLowerCase()
-      // .trim()
-      // .split()
-      // .join()
-      // .replace()
-      // .includes()
-      // .startsWith()
-      // .endsWith()
-      // .slice()
-      // .substring()
-// .charAt()
-// .indexOf()
-// .lastIndexOf()
-// .concat()
-// .repeat()
+// 1. Email: must contain the '@' symbol.
+// 2. Phone: only numbers are allowed.
+// 3. Name: only alphabetic characters are allowed.
+// 4. The form can be submitted only if the phone number has exactly 10 digits. -->
+<style>
+  
+</style>
 
-fruits = "Apple, Banana, Mango, Orange, Grapes";
+<div class="form-container">
+    <h2>User Registration</h2>
+
+    <form>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="text" id="phone" placeholder="Enter your phone number" required />
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
 
 
-console.log("---------------------------------")
-console.log ("split.....")
-console.log("---------------------------------")
-x = fruits.split(",")
-console.log(x);
-
-
-name = "Asmita"
-let name_array =  name.split("")
-console.log(name_array);
-
-
-
-console.log("---------------------------------")
-console.log ("startsWith and endsWith.....")
-console.log("---------------------------------")
-
-text = "honesty is the best policy";
-
-console.log(text.startsWith("honesty"));
-
-inputName = prompt ("enter your name:");
-
-if (text.endsWith("policy")){
-  console.log("Hello" + inputName + ":" + "this text ends with policy....");
-}
-
-
-
-console.log("---------------------------------")
-console.log ("slice .....")
-console.log("---------------------------------")
-
-     var players = [
-        "Sachin Tendulkar ",
-        " Rahul Dravid",
-        "Virat Kohli  ",
-        "Rohit  Sharma",
-        "M.S Dhoni ",
-        "   Rishabh Pant",
-        "Anil Kumble",
-        "Zaheer   Khan  ",
-        "Javagal Srinath",
-      ];
-
-
-    console.log(players[0].slice(0,6));
-
-
-console.log("---------------------------------")
-console.log ("date methods .....")
-console.log("---------------------------------")
-
-
-
-    </script>
-  </body>
+  
+</body>
 </html>

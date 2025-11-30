@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <p id="arrayDemo"></p> -->
+
+ <script>
+  /*
+TASKS:  26-11-2025
+--Easy
+Reverse a string using .split(), .reverse(), .join()
+Find the maximum in an array using Math.max()
+Format today’s date as DD-MM-YYYY
+--Medium
+Count vowels in a string
+Remove duplicates from an array
+Write a function to generate 5 random OTP numbers
+--Hard
+Build a mini calculator using Math functions
+Create a date countdown timer
+Implement custom error using throw new Error()*/
+
+
+
+//Reverse a string using .split(), .reverse(), .join()
+console.log("---------------------------------------------------------")
+console.log("Reversing a string using split, reverse, and join methods")
+console.log("---------------------------------------------------------")
+var text = "Hello";
+
+// Step 1: split("") - converts string to array of characters
+var step1 = text.split("");
+console.log(step1);  // ["H", "e", "l", "l", "o"]
+
+// Step 2: reverse() - reverses the array
+var step2 = step1.reverse();
+console.log(step2);  // ["o", "l", "l", "e", "H"]
+
+// Step 3: join("") - joins array back into a string
+var step3 = step2.join("");
+console.log(step3);  // "olleH"
+
+
+console.log("---------------------------------------------------------")
+console.log("Finding max num of nums in an array ")
+console.log("---------------------------------------------------------")
+
+nums = [3, 5, 1, 8, 2];
+var maxNum = Math.max(...nums);
+console.log(maxNum);
+
+console.log("---------------------------------------------------------")
+console.log("Format today’s date as DD-MM-YYYY")
+console.log("---------------------------------------------------------")
+
+var today = new Date();
+
+var day = String(today.getDate()).padStart(2, '0');
+var month = String(today.getMonth() + 1).padStart(2, '0');
+var year = today.getFullYear();
+
+var formattedDate = `${day}-${month}-${year}`;
+console.log(formattedDate);  // "27-11-2025"
+
+console.log("---------------------------------------------------------")
+console.log("Count vowels in a string")
+console.log("---------------------------------------------------------")
+var text = "Hello World";
+var vowels = "aeiouAEIOU";
+var count = 0;
+
+for (var char of text) {
+  if (vowels.includes(char)) {
+    count++;
+  }
+}
+
+console.log(count);  // 3 (e, o, o)
+
+
+console.log("---------------------------------------------------------")
+console.log("Remove duplicates from an array")
+console.log("---------------------------------------------------------")
+
+console.log("unique numbers using set object...")
+var arr = [1, 2, 2, 3, 3, 4, 5, 5];
+var unique = [...new Set(arr)];
+console.log(unique);  // [1, 2, 3, 4, 5]
+
+console.log("unique strings using set object....")
+var arr = ["apple", "banana", "apple", "orange", "banana"];
+var unique = [...new Set(arr)];
+console.log(unique);  // ["apple", "banana", "orange"]
+
+
+
+ </script>
+  </body>
+</html>
