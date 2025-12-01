@@ -1,381 +1,624 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Amazon.in Static Clone</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <meta charset="UTF-8" />
+    <title>Amazon.in Static Clone + Hero + Promo Grid</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <style>
-    /* ===== GLOBAL ===== */
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:Arial,Helvetica,sans-serif;
-      background:#e3e6e6;
-      color:#0f1111;
-    }
-    a{text-decoration:none;color:#fff}
+    <style>
+      /* --- GLOBAL RESET --- */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #e3e6e6;
+        color: #0f1111;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
 
-    /* ===== NAVBAR OUTER WRAP ===== */
-    #navbar-main{
-      width:100%;background:#131921;
-      display:flex;justify-content:center;
-    }
-    #navbar{width:100%}
+      /* -------------- NAVBAR -------------- */
+      #navbar-main {
+        width: 100%;
+        background: #131921;
+        display: flex;
+        justify-content: center;
+      }
+      #navbar {
+        width: 100%;
+      }
 
-    /* ----------------------------------------------------
-       =============== TOP STRIP (#nav-belt) ===============
-       ---------------------------------------------------- */
-    #nav-belt{
-      background:#131921;
-      padding:4px 12px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      color:#fff;
-    }
-    .nav-left,.nav-right,.nav-fill{
-      display:flex;align-items:center;
-    }
-    .nav-belt-left{gap:10px}
-    .nav-belt-right{gap:10px}
+      #nav-belt {
+        background: #131921;
+        padding: 4px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #fff;
+      }
+      .nav-left,
+      .nav-right,
+      .nav-fill {
+        display: flex;
+        align-items: center;
+      }
+      .nav-belt-left {
+        gap: 10px;
+      }
+      .nav-belt-right {
+        gap: 10px;
+      }
 
-    /* Logo */
-    #nav-logo{
-      display:flex;align-items:center;
-      padding:4px 6px;
-      border-radius:2px;
-    }
-    #nav-logo:hover{outline:1px solid #ffffff33}
-    .nav-logo-link{display:flex;align-items:baseline;color:#fff}
-    .nav-logo-base{
-      font-size:22px;font-weight:700;
-      letter-spacing:0.4px;text-transform:lowercase;
-    }
-    .nav-logo-locale{font-size:14px;margin-left:3px}
+      /* Logo */
+      #nav-logo {
+        padding: 4px 6px;
+        border-radius: 2px;
+      }
+      #nav-logo:hover {
+        outline: 1px solid #ffffff33;
+      }
+      .nav-logo-link {
+        display: flex;
+        align-items: baseline;
+        color: #fff;
+      }
+      .nav-logo-base {
+        font-size: 22px;
+        font-weight: 700;
+        text-transform: lowercase;
+      }
+      .nav-logo-locale {
+        font-size: 14px;
+        margin-left: 3px;
+      }
 
-    /* Deliver-to */
-    #nav-global-location-slot{
-      padding:4px 6px;border-radius:2px;
-    }
-    #nav-global-location-slot:hover{outline:1px solid #ffffff33}
-    .nav-location-link{
-      display:flex;align-items:center;gap:6px;
-    }
-    .nav-location-icon{
-      width:18px;height:18px;border-radius:50%;
-      background:#f3a847;
-    }
-    #glow-ingress-block .nav-line-1{
-      font-size:12px;color:#ccc;
-    }
-    #glow-ingress-block .nav-line-2{
-      font-size:14px;font-weight:700;color:#fff;
-    }
+      /* Deliver to */
+      #nav-global-location-slot {
+        padding: 4px 6px;
+        border-radius: 2px;
+      }
+      #nav-global-location-slot:hover {
+        outline: 1px solid #ffffff33;
+      }
+      .nav-location-link {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+      }
+      .nav-location-icon {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #f3a847;
+      }
+      .nav-line-1 {
+        font-size: 12px;
+        color: #ccc;
+      }
+      .nav-line-2 {
+        font-size: 14px;
+        font-weight: 700;
+        color: #fff;
+      }
 
-    /* ----------------------------------------------------
-       ===================== SEARCH BAR ====================
-       ---------------------------------------------------- */
-    #nav-fill-search{flex:1;justify-content:center;padding:0 10px}
+      /* Search */
+      #nav-fill-search {
+        flex: 1;
+        justify-content: center;
+        padding: 0 10px;
+      }
+      #nav-search {
+        width: 100%;
+        max-width: 750px;
+      }
+      .nav-searchbar {
+        display: flex;
+        width: 100%;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .nav-search-scope {
+        background: #e6e6e6;
+        border: 1px solid #e6e6e6;
+        border-right: none;
+        padding: 0 8px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+      }
+      .nav-search-scope:hover {
+        background: #d4d4d4;
+        border-color: #d4d4d4;
+      }
+      .nav-search-dropdown {
+        background: transparent;
+        border: none;
+        font-size: 12px;
+        margin-left: 4px;
+        outline: none;
+      }
+      .nav-search-field {
+        flex: 1;
+      }
+      .nav-search-field input {
+        width: 100%;
+        height: 40px;
+        border: none;
+        font-size: 15px;
+        padding: 0 10px;
+      }
+      .nav-search-submit {
+        background: #febd69;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 40px;
+        cursor: pointer;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
+      .nav-search-submit:hover {
+        background: #f3a847;
+      }
+      #nav-search-submit-button {
+        background: transparent;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+        color: #111;
+      }
 
-    #nav-search{width:100%;max-width:750px}
-    .nav-searchbar{
-      display:flex;width:100%;
-      border-radius:4px;overflow:hidden;
-    }
+      /* Right side */
+      .nav-a {
+        padding: 4px 6px;
+        border-radius: 2px;
+        font-size: 13px;
+        color: #fff;
+      }
+      .nav-a:hover {
+        outline: 1px solid #ffffff33;
+      }
+      .icp-nav-flag {
+        width: 18px;
+        height: 12px;
+        margin-right: 4px;
+        border: 1px solid #fff;
+        display: inline-block;
+        background: linear-gradient(to bottom, #ff9933, #fff, #138808);
+      }
+      #nav-cart {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        position: relative;
+      }
+      #nav-cart-count {
+        position: absolute;
+        top: -6px;
+        left: 12px;
+        color: #f08804;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .nav-cart-icon {
+        font-size: 24px;
+        color: #fff;
+      }
 
-    /* Search scope dropdown */
-    .nav-search-scope{
-      background:#e6e6e6;
-      border:1px solid #e6e6e6;
-      border-right:none;
-      padding:0 8px;
-      height:40px;
-      display:flex;align-items:center;
-    }
-    .nav-search-scope:hover{background:#d4d4d4;border-color:#d4d4d4}
-    .nav-search-label{font-size:12px;color:#333}
+      /* ------------------ LOWER NAV (X-SHOP) ------------------ */
+      #nav-main {
+        display: flex;
+        align-items: center;
+        background: #232f3e;
+        padding: 0 12px;
+        min-height: 39px;
+        color: #fff;
+      }
+      .nav-hamburger {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #fff;
+      }
+      .hm-icon {
+        font-size: 18px;
+      }
+      .nav-main-fill {
+        flex: 1;
+        overflow-x: auto;
+      }
+      #nav-xshop {
+        display: flex;
+        gap: 8px;
+        padding: 4px 0;
+        list-style: none;
+      }
+      #nav-xshop .nav-a {
+        font-size: 13px;
+        padding: 4px 6px;
+      }
+      .nav-main-right {
+        margin-left: 12px;
+      }
+      .nav-swm-banner {
+        background: linear-gradient(90deg, #febd69, #f3a847);
+        height: 30px;
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+        border-radius: 2px;
+        color: #111;
+        font-weight: 700;
+      }
 
-    .nav-search-dropdown{
-      background:transparent;
-      border:none;
-      font-size:12px;
-      margin-left:4px;
-      outline:none;
-      color:#111;
-    }
+      /* =======================================================
+       AMAZON HERO CAROUSEL (STATIC, CSS-ONLY)
+       ======================================================= */
 
-    /* Search input */
-    .nav-search-field{flex:1}
-    .nav-search-field input{
-      width:100%;height:40px;border:none;
-      font-size:15px;padding:0 10px;
-    }
+      .hero-carousel {
+        position: relative;
+        width: 100%;
+        height: 450px;
+        overflow: hidden;
+      }
 
-    /* Search submit */
-    .nav-search-submit{
-      background:#febd69;
-      display:flex;align-items:center;justify-content:center;
-      width:45px;height:40px;cursor:pointer;
-      border-top-right-radius:4px;border-bottom-right-radius:4px;
-    }
-    .nav-search-submit:hover{background:#f3a847}
-    #nav-search-submit-button{
-      background:transparent;border:none;
-      font-size:18px;cursor:pointer;color:#111;
-    }
+      .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        animation: slideShow 24s infinite;
+      }
 
-    /* ----------------------------------------------------
-       ============= RIGHT SIDE (LANG/ACC/CART) ============
-       ---------------------------------------------------- */
-    .nav-a{
-      padding:4px 6px;border-radius:2px;font-size:13px;
-      white-space:nowrap;
-    }
-    .nav-a:hover{outline:1px solid #ffffff33}
+      /* ---- 4 slides ---- */
+      .slide1 {
+        background-image: url("https://m.media-amazon.com/images/I/61DUO0NqyyL._SX3000_.jpg");
+      }
+      .slide2 {
+        background-image: url("https://m.media-amazon.com/images/I/71qid7QFWJL._SX3000_.jpg");
+        animation-delay: 6s;
+      }
+      .slide3 {
+        background-image: url("https://m.media-amazon.com/images/I/71qCO9Y-xfL._SX3000_.jpg");
+        animation-delay: 12s;
+      }
+      .slide4 {
+        background-image: url("https://m.media-amazon.com/images/I/61P7hqIHrdL._SX3000_.jpg");
+        animation-delay: 18s;
+      }
 
-    .nav-a-2 .nav-line-1{font-size:12px;color:#ccc}
-    .nav-a-2 .nav-line-2{font-size:13px;font-weight:700;color:#fff}
+      /* ---- fade animation ---- */
+      @keyframes slideShow {
+        0% {
+          opacity: 0;
+        }
+        5% {
+          opacity: 1;
+        }
+        25% {
+          opacity: 1;
+        }
+        30% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
 
-    .icp-nav-flag{
-      display:inline-block;width:18px;height:12px;margin-right:4px;
-      background:linear-gradient(to bottom,#ff9933,#fff,#138808);
-      border:1px solid #fff;
-    }
+      /* ---- bottom overlay fade (Amazon style) ---- */
+      .hero-fade-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 150px;
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          rgba(227, 230, 230, 0.9),
+          #e3e6e6
+        );
+        pointer-events: none;
+      }
 
-    /* Cart */
-    #nav-cart{
-      display:flex;align-items:center;gap:4px;
-    }
-    #nav-cart-count{
-      position:absolute;top:-6px;left:12px;
-      color:#f08804;font-weight:700;font-size:14px;
-    }
-    #nav-cart-count-container{position:relative}
-    .nav-cart-icon{font-size:24px;color:#fff}
+      /* =======================================================
+       PROMO GRID (OPTION 1) – SHOP BY CATEGORY
+       ======================================================= */
 
-    /* ----------------------------------------------------
-       ============= LOWER STRIP (#nav-main) ===============
-       ---------------------------------------------------- */
-    #nav-main{
-      display:flex;
-      align-items:center;
-      background:#232f3e;
-      padding:0 12px;
-      min-height:39px;
-      color:#fff;
-    }
-    .nav-main-left{margin-right:12px}
+      .home-content {
+        margin-top: -140px; /* pull grid into hero area like Amazon */
+        padding: 0 16px 24px;
+      }
 
-    /* Hamburger */
-    .nav-hamburger{
-      display:flex;align-items:center;gap:6px;
-      font-weight:700;font-size:14px;
-    }
-    .hm-icon{font-size:18px;color:#fff}
+      .home-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
 
-    /* X-Shop */
-    .nav-main-fill{flex:1;overflow-x:auto}
-    #nav-xshop{
-      display:flex;gap:8px;
-      padding:4px 0;
-      list-style:none;
-    }
-    #nav-xshop .nav-a{
-      font-size:13px;padding:4px 6px;
-    }
+      .home-card {
+        background: #fff;
+        padding: 16px;
+        box-shadow: 0 2px 4px rgba(15, 17, 17, 0.15);
+        min-height: 360px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
 
-    /* SWM Banner */
-    .nav-main-right{margin-left:12px}
-    .nav-swm-banner{
-      background:linear-gradient(90deg,#febd69,#f3a847);
-      padding:0 10px;height:30px;
-      display:flex;align-items:center;border-radius:2px;
-      color:#111;font-weight:700;font-size:13px;
-    }
+      .home-card h2 {
+        font-size: 18px;
+        margin-bottom: 12px;
+      }
 
-    /* ----------------------------------------------------
-       =============== PAGE CONTENT PLACEHOLDER =============
-       ---------------------------------------------------- */
-    #page-content{padding:16px}
-    .hero-placeholder{
-      background:#fff;
-      padding:40px;
-      max-width:1000px;margin:24px auto;
-      text-align:center;
-      box-shadow:0 2px 4px rgba(15,17,17,0.15);
-    }
-    .hero-placeholder h1{margin-bottom:12px}
-  </style>
-</head>
+      .home-card-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 120px;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
 
-<body>
+      .home-card-item {
+        background: #f7f8f8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 12px;
+        padding: 4px;
+      }
 
-<!-- ========================= HEADER ========================= -->
-<header id="navbar-main">
-  <div id="navbar">
-    
-    <!-- ====================== TOP BELT ====================== -->
-    <div id="nav-belt">
+      .home-card-item img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+      }
 
-      <!-- LEFT -->
-      <div class="nav-left nav-belt-left">
+      .home-card a {
+        font-size: 13px;
+        color: #007185;
+      }
+      .home-card a:hover {
+        text-decoration: underline;
+        color: #c7511f;
+      }
 
-        <!-- Logo -->
-        <div id="nav-logo">
-          <a class="nav-logo-link" href="#">
-            <span class="nav-logo-base">amazon</span>
-            <span class="nav-logo-locale">.in</span>
-          </a>
-        </div>
+      /* Simple responsiveness */
+      @media (max-width: 1200px) {
+        .home-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      @media (max-width: 900px) {
+        .home-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .home-content {
+          margin-top: -100px;
+        }
+      }
+      @media (max-width: 600px) {
+        .home-grid {
+          grid-template-columns: 1fr;
+        }
+        .home-content {
+          margin-top: -60px;
+          padding: 0 8px 16px;
+        }
+        .home-card {
+          min-height: auto;
+        }
+      }
+    </style>
+  </head>
 
-        <!-- Deliver To -->
-        <div id="nav-global-location-slot">
-          <a href="#" class="nav-location-link">
-            <div class="nav-location-icon"></div>
-            <div id="glow-ingress-block">
-              <span class="nav-line-1">Deliver to Sujay</span>
-              <span class="nav-line-2">Hyderabad 500072</span>
+  <body>
+    <!-- ===========================================================
+     HEADER (NAVBELT + NAVMAIN + XSHOP)
+=========================================================== -->
+    <header id="navbar-main">
+      <div id="navbar">
+        <!-- ------------------ TOP BELT ------------------ -->
+        <div id="nav-belt">
+          <div class="nav-left nav-belt-left">
+            <div id="nav-logo">
+              <a class="nav-logo-link" href="#">
+                <span class="nav-logo-base">amazon</span>
+                <span class="nav-logo-locale">.in</span>
+              </a>
             </div>
-          </a>
-        </div>
 
-      </div>
-
-      <!-- CENTER SEARCH -->
-      <div class="nav-fill" id="nav-fill-search">
-
-        <div id="nav-search">
-          <form class="nav-searchbar">
-
-            <!-- Dropdown -->
-            <div class="nav-left">
-              <div class="nav-search-scope">
-                <span class="nav-search-label">All</span>
-                <select class="nav-search-dropdown">
-                  <option selected>All Categories</option>
-                  <option>Amazon Devices</option>
-                  <option>Books</option>
-                  <option>Mobiles</option>
-                  <option>Electronics</option>
-                </select>
-              </div>
+            <div id="nav-global-location-slot">
+              <a href="#" class="nav-location-link">
+                <div class="nav-location-icon"></div>
+                <div id="glow-ingress-block">
+                  <span class="nav-line-1">Deliver to Sujay</span>
+                  <span class="nav-line-2">Hyderabad 500072</span>
+                </div>
+              </a>
             </div>
-
-            <!-- Input -->
-            <div class="nav-fill">
-              <div class="nav-search-field">
-                <input type="text" placeholder="Search Amazon.in" />
-              </div>
-            </div>
-
-            <!-- Submit -->
-            <div class="nav-right">
-              <div class="nav-search-submit">
-                <button id="nav-search-submit-button" type="submit">🔍</button>
-              </div>
-            </div>
-
-          </form>
-        </div>
-
-      </div>
-
-      <!-- RIGHT -->
-      <div class="nav-right nav-belt-right">
-
-        <!-- Language -->
-        <a href="#" class="nav-a nav-a-2">
-          <span class="nav-line-2"><span class="icp-nav-flag"></span>EN</span>
-        </a>
-
-        <!-- Account -->
-        <a href="#" class="nav-a nav-a-2">
-          <span class="nav-line-1">Hello, Sujay</span>
-          <span class="nav-line-2">Account &amp; Lists</span>
-        </a>
-
-        <!-- Orders -->
-        <a href="#" class="nav-a nav-a-2">
-          <span class="nav-line-1">Returns</span>
-          <span class="nav-line-2">&amp; Orders</span>
-        </a>
-
-        <!-- Cart -->
-        <a href="#" id="nav-cart" class="nav-a nav-a-2">
-          <div id="nav-cart-count-container">
-            <span id="nav-cart-count">0</span>
-            <span class="nav-cart-icon">🛒</span>
           </div>
-          <span class="nav-line-2">Cart</span>
-        </a>
 
+          <!-- SEARCH -->
+          <div class="nav-fill" id="nav-fill-search">
+            <div id="nav-search">
+              <form class="nav-searchbar">
+                <div class="nav-left">
+                  <div class="nav-search-scope">
+                    <span class="nav-search-label">All</span>
+                    <select class="nav-search-dropdown">
+                      <option selected>All Categories</option>
+                      <option>Electronics</option>
+                      <option>Mobiles</option>
+                      <option>Books</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="nav-fill">
+                  <div class="nav-search-field">
+                    <input type="text" placeholder="Search Amazon.in" />
+                  </div>
+                </div>
+
+                <div class="nav-right">
+                  <div class="nav-search-submit">
+                    <button id="nav-search-submit-button" type="submit">
+                      🔍
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="nav-right nav-belt-right">
+            <a href="#" class="nav-a nav-a-2">
+              <span class="icp-nav-flag"></span>EN
+            </a>
+
+            <a href="#" class="nav-a nav-a-2">
+              <span class="nav-line-1">Hello, Sujay</span>
+              <span class="nav-line-2">Account & Lists</span>
+            </a>
+
+            <a href="#" class="nav-a nav-a-2">
+              <span class="nav-line-1">Returns</span>
+              <span class="nav-line-2">& Orders</span>
+            </a>
+
+            <a href="#" id="nav-cart" class="nav-a nav-a-2">
+              <div id="nav-cart-count-container">
+                <span id="nav-cart-count">0</span>
+                <span class="nav-cart-icon">🛒</span>
+              </div>
+              <span class="nav-line-2">Cart</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- ------------------ LOWER STRIP / XSHOP ------------------ -->
+        <div id="nav-main">
+          <div class="nav-main-left">
+            <a href="#" class="nav-hamburger nav-a">
+              <span class="hm-icon">☰</span>
+              <span class="hm-icon-label">All</span>
+            </a>
+          </div>
+
+          <div class="nav-main-fill">
+            <ul id="nav-xshop">
+              <li><a href="#" class="nav-a">Fresh</a></li>
+              <li><a href="#" class="nav-a">Prime</a></li>
+              <li><a href="#" class="nav-a">MX Player</a></li>
+              <li><a href="#" class="nav-a">Sell</a></li>
+              <li><a href="#" class="nav-a">Amazon Pay</a></li>
+              <li><a href="#" class="nav-a">Gift Cards</a></li>
+              <li><a href="#" class="nav-a">Buy Again</a></li>
+              <li><a href="#" class="nav-a">AmazonBasics</a></li>
+              <li><a href="#" class="nav-a">Kindle eBooks</a></li>
+              <li><a href="#" class="nav-a">Gift Ideas</a></li>
+              <li><a href="#" class="nav-a">Home & Kitchen</a></li>
+              <li><a href="#" class="nav-a">Beauty</a></li>
+              <li><a href="#" class="nav-a">Electronics</a></li>
+              <li><a href="#" class="nav-a">Computers</a></li>
+              <li><a href="#" class="nav-a">Mobiles</a></li>
+              <li><a href="#" class="nav-a">Fashion</a></li>
+              <li><a href="#" class="nav-a">Sports</a></li>
+              <li><a href="#" class="nav-a">Video Games</a></li>
+              <li><a href="#" class="nav-a">Baby</a></li>
+              <li><a href="#" class="nav-a">Coupons</a></li>
+            </ul>
+          </div>
+
+          <div class="nav-main-right">
+            <div class="nav-swm-banner">Black Friday Deals</div>
+          </div>
+        </div>
       </div>
+    </header>
 
+    <!-- ===========================================================
+     AMAZON HERO CAROUSEL (CSS ONLY)
+=========================================================== -->
+    <div class="hero-carousel">
+      <div class="slide slide1"></div>
+      <div class="slide slide2"></div>
+      <div class="slide slide3"></div>
+      <div class="slide slide4"></div>
+
+      <div class="hero-fade-bottom"></div>
     </div>
 
-    <!-- ====================== LOWER STRIP ====================== -->
-    <div id="nav-main">
+    <!-- ===========================================================
+     HOME CONTENT – PROMO CARDS GRID
+=========================================================== -->
+    <main class="home-content">
+      <section class="home-grid">
+        <!-- Card 1 -->
+        <article class="home-card">
+          <h2>Up to 60% off | Home essentials</h2>
+          <div class="home-card-grid">
+            <div class="home-card-item">Cushions &amp; covers</div>
+            <div class="home-card-item">Bedsheets</div>
+            <div class="home-card-item">Curtains</div>
+            <div class="home-card-item">Decor &amp; more</div>
+          </div>
+          <a href="#">See more</a>
+        </article>
 
-      <!-- HAMBURGER -->
-      <div class="nav-left nav-main-left">
-        <a href="#" class="nav-hamburger nav-a">
-          <span class="hm-icon">☰</span>
-          <span class="hm-icon-label">All</span>
-        </a>
-      </div>
+        <!-- Card 2 -->
+        <article class="home-card">
+          <h2>Revamp your electronics</h2>
+          <div class="home-card-grid">
+            <div class="home-card-item">Laptops</div>
+            <div class="home-card-item">Monitors</div>
+            <div class="home-card-item">Keyboards</div>
+            <div class="home-card-item">Headphones</div>
+          </div>
+          <a href="#">Shop now</a>
+        </article>
 
-      <!-- X-SHOP MENU (FULL) -->
-      <div class="nav-fill nav-main-fill">
-        <ul id="nav-xshop">
-          <li><a href="#" class="nav-a">Fresh</a></li>
-          <li><a href="#" class="nav-a">Prime</a></li>
-          <li><a href="#" class="nav-a">MX Player</a></li>
-          <li><a href="#" class="nav-a">Sell</a></li>
-          <li><a href="#" class="nav-a">Amazon Pay</a></li>
-          <li><a href="#" class="nav-a">Gift Cards</a></li>
-          <li><a href="#" class="nav-a">Buy Again</a></li>
-          <li><a href="#" class="nav-a">AmazonBasics</a></li>
-          <li><a href="#" class="nav-a">Kindle eBooks</a></li>
-          <li><a href="#" class="nav-a">Gift Ideas</a></li>
-          <li><a href="#" class="nav-a">Sujay's Amazon</a></li>
-          <li><a href="#" class="nav-a">Browsing History</a></li>
-          <li><a href="#" class="nav-a">Customer Service</a></li>
-          <li><a href="#" class="nav-a">Home Improvement</a></li>
-          <li><a href="#" class="nav-a">Bestsellers</a></li>
-          <li><a href="#" class="nav-a">Books</a></li>
-          <li><a href="#" class="nav-a">Home & Kitchen</a></li>
-          <li><a href="#" class="nav-a">Beauty & Personal Care</a></li>
-          <li><a href="#" class="nav-a">New Releases</a></li>
-          <li><a href="#" class="nav-a">Electronics</a></li>
-          <li><a href="#" class="nav-a">Computers</a></li>
-          <li><a href="#" class="nav-a">Fashion</a></li>
-          <li><a href="#" class="nav-a">Toys & Games</a></li>
-          <li><a href="#" class="nav-a">Sports & Outdoors</a></li>
-          <li><a href="#" class="nav-a">Car & Motorbike</a></li>
-          <li><a href="#" class="nav-a">Mobiles</a></li>
-          <li><a href="#" class="nav-a">Pet Supplies</a></li>
-          <li><a href="#" class="nav-a">Video Games</a></li>
-          <li><a href="#" class="nav-a">Baby</a></li>
-          <li><a href="#" class="nav-a">Coupons</a></li>
-        </ul>
-      </div>
+        <!-- Card 3 -->
+        <article class="home-card">
+          <h2>Amazon Fashion | Trending</h2>
+          <div class="home-card-grid">
+            <div class="home-card-item">Men's clothing</div>
+            <div class="home-card-item">Women's clothing</div>
+            <div class="home-card-item">Watches</div>
+            <div class="home-card-item">Bags &amp; luggage</div>
+          </div>
+          <a href="#">Explore all</a>
+        </article>
 
-      <!-- RIGHT BANNER -->
-      <div class="nav-right nav-main-right">
-        <div class="nav-swm-banner">Black Friday & Cyber Monday Deals</div>
-      </div>
-
-    </div>
-  </div>
-</header>
-
-<!-- ========================= CONTENT ========================= -->
-<div id="page-content">
-  <div class="hero-placeholder">
-    <h1>Amazon.in Static Clone</h1>
-    <p>This is your integrated version, including full top navbar & full x-shop menu.</p>
-  </div>
-</div>
-
-</body>
+        <!-- Card 4 -->
+        <article class="home-card">
+          <h2>Top deals in mobiles</h2>
+          <div class="home-card-grid">
+            <div class="home-card-item">5G smartphones</div>
+            <div class="home-card-item">Budget phones</div>
+            <div class="home-card-item">Accessories</div>
+            <div class="home-card-item">Cases &amp; covers</div>
+          </div>
+          <a href="#">View offers</a>
+        </article>
+      </section>
+    </main>
+  </body>
 </html>
