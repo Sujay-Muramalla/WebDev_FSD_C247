@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Amazon.in Static Clone + Hero + Promo Grid</title>
+    <title>Amazon.in Static Clone + Hero + Promo Grid (2 Rows)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <style>
@@ -260,16 +260,14 @@
       }
 
       /* =======================================================
-       AMAZON HERO CAROUSEL (STATIC, CSS-ONLY)
+       AMAZON HERO CAROUSEL (CSS-ONLY)
        ======================================================= */
-
       .hero-carousel {
         position: relative;
         width: 100%;
         height: 450px;
         overflow: hidden;
       }
-
       .slide {
         position: absolute;
         top: 0;
@@ -281,8 +279,6 @@
         opacity: 0;
         animation: slideShow 24s infinite;
       }
-
-      /* ---- 4 slides ---- */
       .slide1 {
         background-image: url("https://m.media-amazon.com/images/I/61DUO0NqyyL._SX3000_.jpg");
       }
@@ -299,7 +295,6 @@
         animation-delay: 18s;
       }
 
-      /* ---- fade animation ---- */
       @keyframes slideShow {
         0% {
           opacity: 0;
@@ -318,7 +313,6 @@
         }
       }
 
-      /* ---- bottom overlay fade (Amazon style) ---- */
       .hero-fade-bottom {
         position: absolute;
         bottom: 0;
@@ -335,11 +329,11 @@
       }
 
       /* =======================================================
-       PROMO GRID (OPTION 1) – SHOP BY CATEGORY
+       TWO-ROW PROMO GRID (8 CARDS)
        ======================================================= */
 
       .home-content {
-        margin-top: -140px; /* pull grid into hero area like Amazon */
+        margin-top: -140px; /* pull into hero */
         padding: 0 16px 24px;
       }
 
@@ -384,12 +378,6 @@
         padding: 4px;
       }
 
-      .home-card-item img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: cover;
-      }
-
       .home-card a {
         font-size: 13px;
         color: #007185;
@@ -399,7 +387,7 @@
         color: #c7511f;
       }
 
-      /* Simple responsiveness */
+      /* RESPONSIVE */
       @media (max-width: 1200px) {
         .home-grid {
           grid-template-columns: repeat(3, 1fr);
@@ -430,7 +418,7 @@
 
   <body>
     <!-- ===========================================================
-     HEADER (NAVBELT + NAVMAIN + XSHOP)
+     NAVBAR + XSHOP
 =========================================================== -->
     <header id="navbar-main">
       <div id="navbar">
@@ -555,35 +543,33 @@
     </header>
 
     <!-- ===========================================================
-     AMAZON HERO CAROUSEL (CSS ONLY)
+     AMAZON HERO CAROUSEL
 =========================================================== -->
     <div class="hero-carousel">
       <div class="slide slide1"></div>
       <div class="slide slide2"></div>
       <div class="slide slide3"></div>
       <div class="slide slide4"></div>
-
       <div class="hero-fade-bottom"></div>
     </div>
 
     <!-- ===========================================================
-     HOME CONTENT – PROMO CARDS GRID
+     TWO ROWS OF PROMO CARDS (8 CARDS TOTAL)
 =========================================================== -->
     <main class="home-content">
+      <!-- ROW 1 -->
       <section class="home-grid">
-        <!-- Card 1 -->
         <article class="home-card">
           <h2>Up to 60% off | Home essentials</h2>
           <div class="home-card-grid">
-            <div class="home-card-item">Cushions &amp; covers</div>
+            <div class="home-card-item">Cushions</div>
             <div class="home-card-item">Bedsheets</div>
             <div class="home-card-item">Curtains</div>
-            <div class="home-card-item">Decor &amp; more</div>
+            <div class="home-card-item">Home décor</div>
           </div>
           <a href="#">See more</a>
         </article>
 
-        <!-- Card 2 -->
         <article class="home-card">
           <h2>Revamp your electronics</h2>
           <div class="home-card-grid">
@@ -595,28 +581,73 @@
           <a href="#">Shop now</a>
         </article>
 
-        <!-- Card 3 -->
         <article class="home-card">
           <h2>Amazon Fashion | Trending</h2>
           <div class="home-card-grid">
-            <div class="home-card-item">Men's clothing</div>
-            <div class="home-card-item">Women's clothing</div>
+            <div class="home-card-item">Men’s wear</div>
+            <div class="home-card-item">Women’s wear</div>
             <div class="home-card-item">Watches</div>
-            <div class="home-card-item">Bags &amp; luggage</div>
+            <div class="home-card-item">Bags</div>
           </div>
           <a href="#">Explore all</a>
         </article>
 
-        <!-- Card 4 -->
         <article class="home-card">
           <h2>Top deals in mobiles</h2>
           <div class="home-card-grid">
-            <div class="home-card-item">5G smartphones</div>
+            <div class="home-card-item">5G phones</div>
             <div class="home-card-item">Budget phones</div>
             <div class="home-card-item">Accessories</div>
-            <div class="home-card-item">Cases &amp; covers</div>
+            <div class="home-card-item">Covers</div>
           </div>
           <a href="#">View offers</a>
+        </article>
+      </section>
+
+      <!-- ROW 2 -->
+      <section class="home-grid" style="margin-top: 24px">
+        <article class="home-card">
+          <h2>Kitchen & Dining deals</h2>
+          <div class="home-card-grid">
+            <div class="home-card-item">Cookware</div>
+            <div class="home-card-item">Storage</div>
+            <div class="home-card-item">Appliances</div>
+            <div class="home-card-item">Containers</div>
+          </div>
+          <a href="#">Check deals</a>
+        </article>
+
+        <article class="home-card">
+          <h2>Beauty & Personal Care</h2>
+          <div class="home-card-grid">
+            <div class="home-card-item">Makeup</div>
+            <div class="home-card-item">Skin care</div>
+            <div class="home-card-item">Hair care</div>
+            <div class="home-card-item">Grooming</div>
+          </div>
+          <a href="#">Discover more</a>
+        </article>
+
+        <article class="home-card">
+          <h2>Sports, Fitness & Outdoors</h2>
+          <div class="home-card-grid">
+            <div class="home-card-item">Dumbbells</div>
+            <div class="home-card-item">Yoga mats</div>
+            <div class="home-card-item">Cycling</div>
+            <div class="home-card-item">Backpacks</div>
+          </div>
+          <a href="#">Explore now</a>
+        </article>
+
+        <article class="home-card">
+          <h2>Baby products</h2>
+          <div class="home-card-grid">
+            <div class="home-card-item">Toys</div>
+            <div class="home-card-item">Clothing</div>
+            <div class="home-card-item">Bathing</div>
+            <div class="home-card-item">Feeding</div>
+          </div>
+          <a href="#">See more</a>
         </article>
       </section>
     </main>
