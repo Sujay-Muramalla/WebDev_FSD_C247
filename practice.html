@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Amazon.in Static Clone + Hero + Promo Grid + Deals Strip</title>
+  <title>Amazon.in Static Clone + Hero + Promo Grid + Deals + Footer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
@@ -27,7 +27,8 @@
 
     /* Logo */
     #nav-logo{padding:4px 6px;border-radius:2px}
-    #nav-logo:hover{outline:1px solid #ffffff33}
+    /*#nav-logo:hover{outline:1px solid #ffffff33}*/
+    #nav-logo:hover{outline:1px solid hsl(0, 0%, 100%)}
     .nav-logo-link{display:flex;align-items:baseline;color:#fff}
     .nav-logo-base{font-size:22px;font-weight:700;text-transform:lowercase}
     .nav-logo-locale{font-size:14px;margin-left:3px}
@@ -303,6 +304,87 @@
       line-height:1.3;
     }
 
+    /* =======================================================
+       FOOTER (AMAZON STYLE)
+       ======================================================= */
+    .footer-back-to-top{
+      margin-top:32px;
+      background:#37475a;
+      color:#fff;
+      text-align:center;
+      padding:12px 0;
+      font-size:13px;
+      cursor:pointer;
+    }
+    .footer-back-to-top:hover{
+      background:#485769;
+    }
+
+    .footer-main{
+      background:#232f3e;
+      color:#fff;
+      padding:32px 0;
+    }
+
+    .footer-columns{
+      max-width:1000px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:24px;
+    }
+
+    .footer-column-title{
+      font-size:16px;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+
+    .footer-link{
+      display:block;
+      font-size:13px;
+      color:#ddd;
+      margin-bottom:6px;
+    }
+    .footer-link:hover{
+      text-decoration:underline;
+    }
+
+    .footer-bottom{
+      background:#131a22;
+      color:#ddd;
+      padding:16px 0 18px;
+      font-size:12px;
+    }
+
+    .footer-bottom-inner{
+      max-width:1000px;
+      margin:0 auto;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:6px;
+    }
+
+    .footer-bottom-links{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:12px;
+      margin-bottom:4px;
+    }
+
+    .footer-bottom-links a{
+      color:#ddd;
+    }
+    .footer-bottom-links a:hover{
+      text-decoration:underline;
+    }
+
+    .footer-bottom-meta{
+      color:#aaa;
+    }
+
     /* RESPONSIVE */
     @media (max-width:1200px){
       .home-grid{grid-template-columns:repeat(3,1fr);}
@@ -310,12 +392,13 @@
     @media (max-width:900px){
       .home-grid{grid-template-columns:repeat(2,1fr);}
       .home-content{margin-top:-100px}
+      .footer-columns{grid-template-columns:repeat(2,1fr);}
     }
     @media (max-width:600px){
       .home-grid{grid-template-columns:1fr;}
       .home-content{margin-top:-60px;padding:0 8px 16px}
-      .home-card{min-height:auto}
       .deals-strip-wrapper{margin:16px auto 0;padding:0 8px}
+      .footer-columns{grid-template-columns:1fr;}
     }
   </style>
 </head>
@@ -689,6 +772,65 @@
   </section>
 
 </main>
+
+<!-- =======================================================
+     AMAZON-STYLE FOOTER
+======================================================= -->
+
+<!-- Back to top -->
+<div class="footer-back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'});">
+  Back to top
+</div>
+
+<!-- Main footer columns -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-columns">
+      <div>
+        <div class="footer-column-title">Get to Know Us</div>
+        <a href="#" class="footer-link">About Us</a>
+        <a href="#" class="footer-link">Careers</a>
+        <a href="#" class="footer-link">Press Releases</a>
+        <a href="#" class="footer-link">Amazon Science</a>
+      </div>
+      <div>
+        <div class="footer-column-title">Connect with Us</div>
+        <a href="#" class="footer-link">Facebook</a>
+        <a href="#" class="footer-link">Twitter</a>
+        <a href="#" class="footer-link">Instagram</a>
+      </div>
+      <div>
+        <div class="footer-column-title">Make Money with Us</div>
+        <a href="#" class="footer-link">Sell on Amazon</a>
+        <a href="#" class="footer-link">Sell under Amazon Accelerator</a>
+        <a href="#" class="footer-link">Protect and Build Your Brand</a>
+        <a href="#" class="footer-link">Become an Affiliate</a>
+        <a href="#" class="footer-link">Advertise Your Products</a>
+      </div>
+      <div>
+        <div class="footer-column-title">Let Us Help You</div>
+        <a href="#" class="footer-link">Your Account</a>
+        <a href="#" class="footer-link">Returns Centre</a>
+        <a href="#" class="footer-link">100% Purchase Protection</a>
+        <a href="#" class="footer-link">Help</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom strip -->
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <div class="footer-bottom-links">
+        <a href="#">Conditions of Use &amp; Sale</a>
+        <a href="#">Privacy Notice</a>
+        <a href="#">Interest-Based Ads</a>
+      </div>
+      <div class="footer-bottom-meta">
+        © 2025, amazon.in (clone for learning), India
+      </div>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
