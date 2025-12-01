@@ -1,797 +1,381 @@
 <!DOCTYPE html>
-<html lang="en-IN">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Amazon.in : Online Shopping</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Icons for search & cart -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <title>Amazon.in Static Clone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
-    /* ==================== GLOBAL ==================== */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    /* ===== GLOBAL ===== */
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:#e3e6e6;
+      color:#0f1111;
     }
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #e3e6e6;
-      color: #111;
+    a{text-decoration:none;color:#fff}
+
+    /* ===== NAVBAR OUTER WRAP ===== */
+    #navbar-main{
+      width:100%;background:#131921;
+      display:flex;justify-content:center;
     }
-    a {
-      text-decoration: none;
-      color: inherit;
+    #navbar{width:100%}
+
+    /* ----------------------------------------------------
+       =============== TOP STRIP (#nav-belt) ===============
+       ---------------------------------------------------- */
+    #nav-belt{
+      background:#131921;
+      padding:4px 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      color:#fff;
     }
-    img {
-      max-width: 100%;
-      display: block;
+    .nav-left,.nav-right,.nav-fill{
+      display:flex;align-items:center;
+    }
+    .nav-belt-left{gap:10px}
+    .nav-belt-right{gap:10px}
+
+    /* Logo */
+    #nav-logo{
+      display:flex;align-items:center;
+      padding:4px 6px;
+      border-radius:2px;
+    }
+    #nav-logo:hover{outline:1px solid #ffffff33}
+    .nav-logo-link{display:flex;align-items:baseline;color:#fff}
+    .nav-logo-base{
+      font-size:22px;font-weight:700;
+      letter-spacing:0.4px;text-transform:lowercase;
+    }
+    .nav-logo-locale{font-size:14px;margin-left:3px}
+
+    /* Deliver-to */
+    #nav-global-location-slot{
+      padding:4px 6px;border-radius:2px;
+    }
+    #nav-global-location-slot:hover{outline:1px solid #ffffff33}
+    .nav-location-link{
+      display:flex;align-items:center;gap:6px;
+    }
+    .nav-location-icon{
+      width:18px;height:18px;border-radius:50%;
+      background:#f3a847;
+    }
+    #glow-ingress-block .nav-line-1{
+      font-size:12px;color:#ccc;
+    }
+    #glow-ingress-block .nav-line-2{
+      font-size:14px;font-weight:700;color:#fff;
     }
 
-    .page-wrapper {
-      max-width: 1500px;
-      margin: 0 auto;
+    /* ----------------------------------------------------
+       ===================== SEARCH BAR ====================
+       ---------------------------------------------------- */
+    #nav-fill-search{flex:1;justify-content:center;padding:0 10px}
+
+    #nav-search{width:100%;max-width:750px}
+    .nav-searchbar{
+      display:flex;width:100%;
+      border-radius:4px;overflow:hidden;
     }
 
-    /* ==================== NAV BELT ==================== */
-    #nav-belt {
-      background-color: #131921;
-      color: #fff;
+    /* Search scope dropdown */
+    .nav-search-scope{
+      background:#e6e6e6;
+      border:1px solid #e6e6e6;
+      border-right:none;
+      padding:0 8px;
+      height:40px;
+      display:flex;align-items:center;
     }
-    #nav-belt-inner {
-      display: flex;
-      align-items: center;
-      padding: 6px 10px;
-      gap: 10px;
-      font-size: 0.85rem;
+    .nav-search-scope:hover{background:#d4d4d4;border-color:#d4d4d4}
+    .nav-search-label{font-size:12px;color:#333}
+
+    .nav-search-dropdown{
+      background:transparent;
+      border:none;
+      font-size:12px;
+      margin-left:4px;
+      outline:none;
+      color:#111;
     }
 
-    .nav-left,
-    .nav-fill,
-    .nav-right {
-      display: flex;
-      align-items: center;
+    /* Search input */
+    .nav-search-field{flex:1}
+    .nav-search-field input{
+      width:100%;height:40px;border:none;
+      font-size:15px;padding:0 10px;
     }
 
-    .nav-left {
-      flex: 0 0 auto;
-      gap: 6px;
+    /* Search submit */
+    .nav-search-submit{
+      background:#febd69;
+      display:flex;align-items:center;justify-content:center;
+      width:45px;height:40px;cursor:pointer;
+      border-top-right-radius:4px;border-bottom-right-radius:4px;
     }
-    .nav-fill {
-      flex: 1 1 auto;
-      justify-content: center;
-    }
-    .nav-right {
-      flex: 0 0 auto;
-      gap: 6px;
-    }
-
-    /* --- Logo block (Amazon structure) --- */
-    #nav-logo {
-      display: flex;
-      align-items: center;
-      padding: 4px 6px;
-      cursor: pointer;
-    }
-    #nav-logo-sprites {
-      display: flex;
-      align-items: center;
-    }
-    .nav-sprite {
-      background-image: url("https://m.media-amazon.com/images/G/31/gno/sprites/nav-sprite-global-1x-hm-dsk-reorg._CB405937547_.png");
-      background-repeat: no-repeat;
-      display: inline-block;
-    }
-    .nav-logo-base {
-      background-position: -10px -51px;
-      width: 97px;
-      height: 30px;
-    }
-    .nav-logo-ext {
-      background-position: -190px -288px;
-      width: 15px;
-      height: 30px;
-    }
-    .nav-logo-locale {
-      font-size: 14px;
-      font-weight: 700;
-      margin-left: 2px;
-      color: #fff;
+    .nav-search-submit:hover{background:#f3a847}
+    #nav-search-submit-button{
+      background:transparent;border:none;
+      font-size:18px;cursor:pointer;color:#111;
     }
 
-    /* --- Deliver-to block --- */
-    #nav-global-location {
-      padding: 4px 6px;
-      white-space: nowrap;
-      cursor: pointer;
+    /* ----------------------------------------------------
+       ============= RIGHT SIDE (LANG/ACC/CART) ============
+       ---------------------------------------------------- */
+    .nav-a{
+      padding:4px 6px;border-radius:2px;font-size:13px;
+      white-space:nowrap;
     }
-    #nav-global-location .line1 {
-      font-size: 0.75rem;
-      color: #ccc;
-    }
-    #nav-global-location .line2 {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #fff;
+    .nav-a:hover{outline:1px solid #ffffff33}
+
+    .nav-a-2 .nav-line-1{font-size:12px;color:#ccc}
+    .nav-a-2 .nav-line-2{font-size:13px;font-weight:700;color:#fff}
+
+    .icp-nav-flag{
+      display:inline-block;width:18px;height:12px;margin-right:4px;
+      background:linear-gradient(to bottom,#ff9933,#fff,#138808);
+      border:1px solid #fff;
     }
 
-    /* ==================== SEARCH BAR ==================== */
-    #nav-search {
-      width: 100%;
-      max-width: 900px;
+    /* Cart */
+    #nav-cart{
+      display:flex;align-items:center;gap:4px;
     }
-    .nav-searchbar {
-      display: flex;
-      width: 100%;
-      border-radius: 4px;
-      overflow: hidden;
-      background-color: #fff;
+    #nav-cart-count{
+      position:absolute;top:-6px;left:12px;
+      color:#f08804;font-weight:700;font-size:14px;
+    }
+    #nav-cart-count-container{position:relative}
+    .nav-cart-icon{font-size:24px;color:#fff}
+
+    /* ----------------------------------------------------
+       ============= LOWER STRIP (#nav-main) ===============
+       ---------------------------------------------------- */
+    #nav-main{
+      display:flex;
+      align-items:center;
+      background:#232f3e;
+      padding:0 12px;
+      min-height:39px;
+      color:#fff;
+    }
+    .nav-main-left{margin-right:12px}
+
+    /* Hamburger */
+    .nav-hamburger{
+      display:flex;align-items:center;gap:6px;
+      font-weight:700;font-size:14px;
+    }
+    .hm-icon{font-size:18px;color:#fff}
+
+    /* X-Shop */
+    .nav-main-fill{flex:1;overflow-x:auto}
+    #nav-xshop{
+      display:flex;gap:8px;
+      padding:4px 0;
+      list-style:none;
+    }
+    #nav-xshop .nav-a{
+      font-size:13px;padding:4px 6px;
     }
 
-    /* Treat left scope area like Amazon .nav-search-scope */
-    .nav-searchbar .nav-left {
-      background-color: #e6e6e6;
-      border-left: 1px solid #e6e6e6;
-      border-top: 1px solid #e6e6e6;
-      border-bottom: 1px solid #e6e6e6;
-      padding: 0 6px;
-      font-size: 0.8rem;
-      white-space: nowrap;
-    }
-    .nav-searchbar .nav-left:hover {
-      background-color: #d4d4d4;
-      border-left-color: #d4d4d4;
-      border-top-color: #d4d4d4;
-      border-bottom-color: #d4d4d4;
+    /* SWM Banner */
+    .nav-main-right{margin-left:12px}
+    .nav-swm-banner{
+      background:linear-gradient(90deg,#febd69,#f3a847);
+      padding:0 10px;height:30px;
+      display:flex;align-items:center;border-radius:2px;
+      color:#111;font-weight:700;font-size:13px;
     }
 
-    .nav-searchbar .nav-search-dropdown {
-      border: none;
-      background: transparent;
-      font-size: 0.8rem;
-      padding: 0 2px;
-      cursor: pointer;
+    /* ----------------------------------------------------
+       =============== PAGE CONTENT PLACEHOLDER =============
+       ---------------------------------------------------- */
+    #page-content{padding:16px}
+    .hero-placeholder{
+      background:#fff;
+      padding:40px;
+      max-width:1000px;margin:24px auto;
+      text-align:center;
+      box-shadow:0 2px 4px rgba(15,17,17,0.15);
     }
-
-    .nav-search-field {
-      flex: 1;
-    }
-    #twotabsearchtextbox {
-      width: 100%;
-      border: none;
-      padding: 8px 10px;
-      font-size: 0.9rem;
-    }
-
-    .nav-searchbar .nav-right {
-      width: 45px;
-      justify-content: center;
-    }
-    .nav-search-submit {
-      border: none;
-      background-color: #febd69;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    .nav-search-submit:hover,
-    .nav-search-submit:focus {
-      background-color: #f3a847;
-    }
-
-    /* --- right-side account / orders / cart --- */
-    .nav-right-block {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.8rem;
-      white-space: nowrap;
-    }
-    .nav-flag {
-      padding: 4px 6px;
-      cursor: pointer;
-    }
-
-    .nav-line-1 {
-      font-size: 0.75rem;
-      color: #fff;    /* match Amazon snippet */
-    }
-    .nav-line-2 {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #fff;    /* match Amazon snippet */
-    }
-
-    .nav-cart {
-      display: flex;
-      align-items: center;
-      gap: 3px;
-      padding: 4px 6px;
-      cursor: pointer;
-      font-weight: 700;
-    }
-    .nav-cart i {
-      font-size: 1.2rem;
-    }
-
-    /* Cart count like Amazon */
-    #nav-cart-count {
-      color: #f08804;
-      font-weight: 700;
-      position: relative;
-      top: 7px;
-      margin-right: 2px;
-      font-size: 0.85rem;
-    }
-
-    /* ==================== MAIN NAV STRIP ==================== */
-    #nav-main {
-      background-color: #232f3e;
-      color: #fff;
-      font-size: 0.85rem;
-    }
-    #nav-main-inner {
-      display: flex;
-      align-items: center;
-      padding: 6px 10px;
-      gap: 18px;
-    }
-
-    #nav-hamburger-menu {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      font-weight: 700;
-    }
-
-    #nav-xshop {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      flex: 1 1 auto;
-    }
-    #nav-xshop a {
-      white-space: nowrap;
-    }
-
-    .nav-right-strip {
-      margin-left: auto;
-      font-weight: 700;
-      color: #fbd815;
-      white-space: nowrap;
-    }
-
-    /* ==================== HERO / CONTENT ==================== */
-    .hero-section {
-      position: relative;
-      margin-bottom: 20px;
-    }
-
-    .hero-banner {
-      background: linear-gradient(90deg,#f56600,#ff9f2a);
-      color: #111;
-      height: 350px;
-      display: flex;
-      align-items: stretch;
-      padding: 0 20px;
-    }
-
-    .hero-left {
-      flex: 2;
-      display: flex;
-      align-items: center;
-      padding: 20px 10px;
-    }
-    .hero-left-inner {
-      background: #fff;
-      padding: 20px;
-      max-width: 420px;
-    }
-    .hero-left-inner .sale-label {
-      color: #cc0000;
-      font-weight: 700;
-      font-size: 0.9rem;
-      margin-bottom: 4px;
-    }
-    .hero-left-inner h2 {
-      font-size: 1.7rem;
-      margin-bottom: 6px;
-    }
-    .hero-left-inner p {
-      margin: 4px 0;
-      font-size: 0.9rem;
-    }
-    .hero-left-inner .tagline {
-      margin-top: 8px;
-      font-size: 0.85rem;
-      color: #444;
-    }
-
-    .hero-right {
-      flex: 3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px 10px;
-    }
-    .hero-right-inner {
-      background: #fff;
-      padding: 15px;
-      display: flex;
-      gap: 15px;
-    }
-    .hero-book {
-      width: 130px;
-      text-align: center;
-      font-size: 0.8rem;
-    }
-    .hero-book img {
-      height: 140px;
-      margin: 0 auto 8px;
-      object-fit: cover;
-    }
-
-    /* ==================== PROMO GRID ==================== */
-    .promo-grid {
-      position: relative;
-      margin-top: -140px;
-      padding: 0 20px 20px 20px;
-    }
-    .promo-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-      margin-bottom: 15px;
-    }
-
-    .a-section {
-      background-color: #fff;
-      padding: 15px;
-      font-size: 0.85rem;
-      min-height: 330px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .a-section h2 {
-      font-size: 1rem;
-      margin-bottom: 10px;
-    }
-
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 6px;
-      margin-bottom: 10px;
-    }
-    .image-grid div span {
-      display: block;
-      margin-top: 4px;
-      font-size: 0.75rem;
-    }
-
-    .a-link-normal {
-      color: #007185;
-      font-size: 0.8rem;
-      margin-top: 8px;
-    }
-
-    /* Second row boxes slightly shorter */
-    .a-section.second-row {
-      min-height: 280px;
-    }
-
-    /* ==================== FOOTER ==================== */
-    footer {
-      background-color: #232f3e;
-      color: #fff;
-      font-size: 0.8rem;
-      text-align: center;
-      padding: 20px 10px;
-      margin-top: 20px;
-    }
-
-    /* ==================== RESPONSIVE ==================== */
-    @media (max-width: 1100px) {
-      .promo-row {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .hero-banner {
-        height: auto;
-        flex-direction: column;
-      }
-      .promo-grid {
-        margin-top: 0;
-      }
-    }
-
-    @media (max-width: 768px) {
-      #nav-belt-inner {
-        flex-wrap: wrap;
-      }
-      .nav-right-block {
-        display: none;
-      }
-      .hero-right-inner {
-        flex-direction: column;
-      }
-      .promo-row {
-        grid-template-columns: 1fr;
-      }
-    }
+    .hero-placeholder h1{margin-bottom:12px}
   </style>
 </head>
+
 <body>
 
-  <!-- ==================== NAV BELT ==================== -->
-  <div id="nav-belt">
-    <div id="nav-belt-inner" class="page-wrapper">
+<!-- ========================= HEADER ========================= -->
+<header id="navbar-main">
+  <div id="navbar">
+    
+    <!-- ====================== TOP BELT ====================== -->
+    <div id="nav-belt">
 
-      <div class="nav-left">
-        <!-- Amazon logo, using original structure -->
+      <!-- LEFT -->
+      <div class="nav-left nav-belt-left">
+
+        <!-- Logo -->
         <div id="nav-logo">
-          <a href="/ref=nav_logo" id="nav-logo-sprites"
-             class="nav-logo-link nav-progressive-attribute"
-             aria-label="Amazon.in" lang="en">
-            <span class="nav-sprite nav-logo-base"></span>
-            <span id="logo-ext" class="nav-sprite nav-logo-ext nav-progressive-content"></span>
+          <a class="nav-logo-link" href="#">
+            <span class="nav-logo-base">amazon</span>
             <span class="nav-logo-locale">.in</span>
           </a>
         </div>
 
-        <!-- Deliver to block -->
-        <div id="nav-global-location">
-          <div class="line1">Delivering to Mumbai 400001</div>
-          <div class="line2">Update location</div>
+        <!-- Deliver To -->
+        <div id="nav-global-location-slot">
+          <a href="#" class="nav-location-link">
+            <div class="nav-location-icon"></div>
+            <div id="glow-ingress-block">
+              <span class="nav-line-1">Deliver to Sujay</span>
+              <span class="nav-line-2">Hyderabad 500072</span>
+            </div>
+          </a>
         </div>
+
       </div>
 
-      <!-- Search -->
-      <div class="nav-fill">
+      <!-- CENTER SEARCH -->
+      <div class="nav-fill" id="nav-fill-search">
+
         <div id="nav-search">
           <form class="nav-searchbar">
+
+            <!-- Dropdown -->
             <div class="nav-left">
-              <select class="nav-search-dropdown">
-                <option>All</option>
-              </select>
+              <div class="nav-search-scope">
+                <span class="nav-search-label">All</span>
+                <select class="nav-search-dropdown">
+                  <option selected>All Categories</option>
+                  <option>Amazon Devices</option>
+                  <option>Books</option>
+                  <option>Mobiles</option>
+                  <option>Electronics</option>
+                </select>
+              </div>
             </div>
+
+            <!-- Input -->
             <div class="nav-fill">
               <div class="nav-search-field">
-                <input id="twotabsearchtextbox" type="text"
-                       placeholder="Search Amazon.in" />
+                <input type="text" placeholder="Search Amazon.in" />
               </div>
             </div>
+
+            <!-- Submit -->
             <div class="nav-right">
-              <button class="nav-search-submit" type="submit">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
+              <div class="nav-search-submit">
+                <button id="nav-search-submit-button" type="submit">🔍</button>
+              </div>
             </div>
+
           </form>
         </div>
+
       </div>
 
-      <!-- Right side: language / account / orders / cart -->
-      <div class="nav-right">
-        <div class="nav-right-block">
-          <div class="nav-flag">EN</div>
+      <!-- RIGHT -->
+      <div class="nav-right nav-belt-right">
 
-          <div>
-            <div class="nav-line-1">Hello, sign in</div>
-            <div class="nav-line-2">Account &amp; Lists</div>
+        <!-- Language -->
+        <a href="#" class="nav-a nav-a-2">
+          <span class="nav-line-2"><span class="icp-nav-flag"></span>EN</span>
+        </a>
+
+        <!-- Account -->
+        <a href="#" class="nav-a nav-a-2">
+          <span class="nav-line-1">Hello, Sujay</span>
+          <span class="nav-line-2">Account &amp; Lists</span>
+        </a>
+
+        <!-- Orders -->
+        <a href="#" class="nav-a nav-a-2">
+          <span class="nav-line-1">Returns</span>
+          <span class="nav-line-2">&amp; Orders</span>
+        </a>
+
+        <!-- Cart -->
+        <a href="#" id="nav-cart" class="nav-a nav-a-2">
+          <div id="nav-cart-count-container">
+            <span id="nav-cart-count">0</span>
+            <span class="nav-cart-icon">🛒</span>
           </div>
+          <span class="nav-line-2">Cart</span>
+        </a>
 
-          <div>
-            <div class="nav-line-1">Returns</div>
-            <div class="nav-line-2">&amp; Orders</div>
-          </div>
-        </div>
+      </div>
 
-        <div class="nav-cart">
-          <span id="nav-cart-count">0</span>
-          <i class="fa-solid fa-cart-shopping"></i>
-          <span>Cart</span>
-        </div>
+    </div>
+
+    <!-- ====================== LOWER STRIP ====================== -->
+    <div id="nav-main">
+
+      <!-- HAMBURGER -->
+      <div class="nav-left nav-main-left">
+        <a href="#" class="nav-hamburger nav-a">
+          <span class="hm-icon">☰</span>
+          <span class="hm-icon-label">All</span>
+        </a>
+      </div>
+
+      <!-- X-SHOP MENU (FULL) -->
+      <div class="nav-fill nav-main-fill">
+        <ul id="nav-xshop">
+          <li><a href="#" class="nav-a">Fresh</a></li>
+          <li><a href="#" class="nav-a">Prime</a></li>
+          <li><a href="#" class="nav-a">MX Player</a></li>
+          <li><a href="#" class="nav-a">Sell</a></li>
+          <li><a href="#" class="nav-a">Amazon Pay</a></li>
+          <li><a href="#" class="nav-a">Gift Cards</a></li>
+          <li><a href="#" class="nav-a">Buy Again</a></li>
+          <li><a href="#" class="nav-a">AmazonBasics</a></li>
+          <li><a href="#" class="nav-a">Kindle eBooks</a></li>
+          <li><a href="#" class="nav-a">Gift Ideas</a></li>
+          <li><a href="#" class="nav-a">Sujay's Amazon</a></li>
+          <li><a href="#" class="nav-a">Browsing History</a></li>
+          <li><a href="#" class="nav-a">Customer Service</a></li>
+          <li><a href="#" class="nav-a">Home Improvement</a></li>
+          <li><a href="#" class="nav-a">Bestsellers</a></li>
+          <li><a href="#" class="nav-a">Books</a></li>
+          <li><a href="#" class="nav-a">Home & Kitchen</a></li>
+          <li><a href="#" class="nav-a">Beauty & Personal Care</a></li>
+          <li><a href="#" class="nav-a">New Releases</a></li>
+          <li><a href="#" class="nav-a">Electronics</a></li>
+          <li><a href="#" class="nav-a">Computers</a></li>
+          <li><a href="#" class="nav-a">Fashion</a></li>
+          <li><a href="#" class="nav-a">Toys & Games</a></li>
+          <li><a href="#" class="nav-a">Sports & Outdoors</a></li>
+          <li><a href="#" class="nav-a">Car & Motorbike</a></li>
+          <li><a href="#" class="nav-a">Mobiles</a></li>
+          <li><a href="#" class="nav-a">Pet Supplies</a></li>
+          <li><a href="#" class="nav-a">Video Games</a></li>
+          <li><a href="#" class="nav-a">Baby</a></li>
+          <li><a href="#" class="nav-a">Coupons</a></li>
+        </ul>
+      </div>
+
+      <!-- RIGHT BANNER -->
+      <div class="nav-right nav-main-right">
+        <div class="nav-swm-banner">Black Friday & Cyber Monday Deals</div>
       </div>
 
     </div>
   </div>
+</header>
 
-  <!-- ==================== MAIN NAV STRIP ==================== -->
-  <div id="nav-main">
-    <div id="nav-main-inner" class="page-wrapper">
-      <div id="nav-hamburger-menu">
-        <i class="fa-solid fa-bars"></i>
-        <span>All</span>
-      </div>
-
-      <div id="nav-xshop">
-        <a href="#">MX Player</a>
-        <a href="#">Sell</a>
-        <a href="#">Bestsellers</a>
-        <a href="#">Mobiles</a>
-        <a href="#">Customer Service</a>
-        <a href="#">Prime</a>
-        <a href="#">New Releases</a>
-        <a href="#">Electronics</a>
-        <a href="#">Amazon Pay</a>
-        <a href="#">Fashion</a>
-        <a href="#">Home &amp; Kitchen</a>
-        <a href="#">Books</a>
-        <a href="#">Computers</a>
-        <a href="#">Beauty &amp; Personal Care</a>
-      </div>
-
-      <div class="nav-right-strip">
-        Black Friday Sale | Live now
-      </div>
-    </div>
+<!-- ========================= CONTENT ========================= -->
+<div id="page-content">
+  <div class="hero-placeholder">
+    <h1>Amazon.in Static Clone</h1>
+    <p>This is your integrated version, including full top navbar & full x-shop menu.</p>
   </div>
-
-  <!-- ==================== MAIN CONTENT ==================== -->
-  <div class="page-wrapper">
-    <!-- HERO -->
-    <section class="hero-section">
-      <div class="hero-banner">
-        <div class="hero-left">
-          <div class="hero-left-inner">
-            <div class="sale-label">Black Friday Sale</div>
-            <h2>Up to 40% off</h2>
-            <p>SSC, NEET exam books &amp; more</p>
-            <p class="tagline">Fast Delivery • Wide Selection</p>
-            <p class="tagline">
-              Extra 5% unlimited cashback* with Amazon Pay ICICI Bank credit card
-            </p>
-          </div>
-        </div>
-
-        <div class="hero-right">
-          <div class="hero-right-inner">
-            <div class="hero-book">
-              <img src="https://via.placeholder.com/120x160?text=Book+1" alt="Book 1">
-              <span>INDIAN POLITY</span>
-            </div>
-            <div class="hero-book">
-              <img src="https://via.placeholder.com/120x160?text=Book+2" alt="Book 2">
-              <span>BOTANY Made Easy</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- PROMO GRID BELOW HERO -->
-      <div class="promo-grid">
-
-        <!-- ========== FIRST ROW ========== -->
-        <div class="promo-row">
-
-          <!-- Box 1 -->
-          <section class="a-section">
-            <div>
-              <h2>Bulk order discounts + Up to 18% GST savings</h2>
-              <div class="image-grid">
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Laptops" alt="">
-                  <span>Up to 45% off | Laptops</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Kitchen" alt="">
-                  <span>Up to 60% off | Kitchen appliances</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Chair" alt="">
-                  <span>Min. 50% off | Office furniture</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=TV" alt="">
-                  <span>Up to 40% off | Televisions</span>
-                </div>
-              </div>
-            </div>
-            <a href="#" class="a-link-normal">Create a free account</a>
-          </section>
-
-          <!-- Box 2 -->
-          <section class="a-section">
-            <div>
-              <h2>Appliances for your home | Up to 55% off</h2>
-              <div class="image-grid">
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=AC" alt="">
-                  <span>Air conditioners</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Fridge" alt="">
-                  <span>Refrigerators</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Oven" alt="">
-                  <span>Microwaves</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Washer" alt="">
-                  <span>Washing machines</span>
-                </div>
-              </div>
-            </div>
-            <a href="#" class="a-link-normal">See more</a>
-          </section>
-
-          <!-- Box 3 -->
-          <section class="a-section">
-            <div>
-              <h2>Revamp your home in style</h2>
-              <div class="image-grid">
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Cushions" alt="">
-                  <span>Cushion covers, bedsheets &amp; more</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Decor" alt="">
-                  <span>Figurines, vases &amp; more</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Storage" alt="">
-                  <span>Home storage</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Lights" alt="">
-                  <span>Lighting solutions</span>
-                </div>
-              </div>
-            </div>
-            <a href="#" class="a-link-normal">Explore all</a>
-          </section>
-
-          <!-- Box 4 -->
-          <section class="a-section">
-            <div>
-              <h2>Black Friday Curated Collections</h2>
-              <div class="image-grid">
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Snow" alt="">
-                  <span>Winter Essentials</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Gift" alt="">
-                  <span>Gifting Store</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Luggage" alt="">
-                  <span>Travel Store</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Ring" alt="">
-                  <span>Wedding Store</span>
-                </div>
-              </div>
-            </div>
-            <a href="#" class="a-link-normal">See all offers</a>
-          </section>
-        </div>
-
-        <!-- ========== SECOND ROW ========== -->
-        <div class="promo-row">
-
-          <!-- Baby care & toys -->
-          <section class="a-section second-row">
-            <div>
-              <h2>Up to 50% off | Baby care &amp; toys | Amazon Brands</h2>
-              <div class="image-grid">
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Baby+Toys" alt="">
-                  <span>Toys &amp; games</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Baby+Care" alt="">
-                  <span>Baby care essentials</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Diapers" alt="">
-                  <span>Diapers &amp; wipes</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Stroller" alt="">
-                  <span>Strollers &amp; more</span>
-                </div>
-              </div>
-            </div>
-            <a href="#" class="a-link-normal">Shop now</a>
-          </section>
-
-          <!-- Starting 199 -->
-          <section class="a-section second-row">
-            <div>
-              <h2>Starting ₹199 | Amazon Brands &amp; more</h2>
-              <div class="image-grid">
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Clothing" alt="">
-                  <span>Clothing</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Home" alt="">
-                  <span>Home essentials</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Kitchen" alt="">
-                  <span>Kitchen picks</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=More" alt="">
-                  <span>More Amazon Brands</span>
-                </div>
-              </div>
-            </div>
-            <a href="#" class="a-link-normal">See all offers</a>
-          </section>
-
-          <!-- Black Friday special offers -->
-          <section class="a-section second-row">
-            <div>
-              <h2>Black Friday Special Offers</h2>
-              <div class="image-grid">
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Amazon" alt="">
-                  <span>Amazon devices</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Deals" alt="">
-                  <span>Blockbuster deals</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=More" alt="">
-                  <span>More offers</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Coupons" alt="">
-                  <span>Coupons</span>
-                </div>
-              </div>
-            </div>
-            <a href="#" class="a-link-normal">Shop all Black Friday specials</a>
-          </section>
-
-          <!-- Starting 149 headphones -->
-          <section class="a-section second-row">
-            <div>
-              <h2>Starting ₹149 | Headphones</h2>
-              <div class="image-grid">
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Boat" alt="">
-                  <span>boAt</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Noise" alt="">
-                  <span>Noise</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=Sony" alt="">
-                  <span>Sony</span>
-                </div>
-                <div>
-                  <img src="https://via.placeholder.com/150x100?text=More" alt="">
-                  <span>More brands</span>
-                </div>
-              </div>
-            </div>
-            <a href="#" class="a-link-normal">Explore headphones</a>
-          </section>
-
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ==================== FOOTER ==================== -->
-  <footer>
-    <p>Static Amazon.in-style demo &mdash; layout only, no interactive features.</p>
-  </footer>
+</div>
 
 </body>
 </html>
