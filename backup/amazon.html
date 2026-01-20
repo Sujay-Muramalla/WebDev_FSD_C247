@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Amazon.in Clone - Sujay Practice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* ==============
+       GLOBAL RESET
+    ============== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #e3e6e6;
+        color: #111;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      /* ==========
+       NAVBAR
+    ========== */
+
+      header#navbar-main {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      /* Top belt: logo, location, search, account, orders, cart */
+      .nav-belt {
+        display: flex;
+        align-items: center;
+        padding: 4px 12px;
+        background-color: #131921;
+        color: #fff;
+      }
+
+      .nav-left,
+      .nav-fill,
+      .nav-right {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-left {
+        flex: 0 0 auto;
+        gap: 10px;
+      }
+
+      .nav-fill {
+        flex: 1 1 auto;
+        justify-content: center;
+        padding: 0 12px;
+      }
+
+      .nav-right {
+        flex: 0 0 auto;
+        gap: 10px;
+      }
+
+      /* Logo */
+      .nav-logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-logo a {
+        display: inline-flex;
+        align-items: flex-end;
+        gap: 2px;
+        padding: 4px 6px;
+      }
+
+      .nav-logo-main {
+        background: #f3a847;
+        color: #131921;
+        font-weight: 700;
+        font-size: 18px;
+        padding: 2px 4px;
+        border-radius: 2px;
+      }
+
+      .nav-logo-sub {
+        font-size: 12px;
+        color: #fff;
+        margin-bottom: 1px;
+      }
+
+      /* Location */
+      .nav-location {
+        display: flex;
+        flex-direction: column;
+        padding: 4px 6px;
+        cursor: pointer;
+      }
+
+      .nav-location .line-1 {
+        font-size: 11px;
+        color: #ccc;
+      }
+
+      .nav-location .line-2 {
+        font-size: 13px;
+        font-weight: 700;
+        color: #fff;
+      }
+
+      /* Search */
+      .nav-search {
+        display: flex;
+        align-items: stretch;
+        width: 100%;
+        max-width: 750px;
+        border-radius: 4px;
+        overflow: hidden;
+        background-color: #fff;
+      }
+
+      .nav-search-select {
+        border: none;
+        padding: 8px;
+        font-size: 13px;
+        background-color: #f3f3f3;
+        color: #111;
+      }
+
+      .nav-search-input {
+        flex: 1;
+        border: none;
+        padding: 8px 10px;
+        font-size: 14px;
+        outline: none;
+      }
+
+      .nav-search-button {
+        border: none;
+        padding: 0 16px;
+        background-color: #febd69;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        color: #111;
+      }
+
+      .nav-search-button:hover {
+        background-color: #f3a847;
+      }
+
+      /* Right section: language, account, orders, cart */
+      .nav-item {
+        padding: 4px 6px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .nav-item .line-1 {
+        font-size: 11px;
+        color: #ccc;
+      }
+
+      .nav-item .line-2 {
+        font-size: 13px;
+        font-weight: 700;
+        color: #fff;
+        white-space: nowrap;
+      }
+
+      .nav-lang {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 4px 6px;
+        cursor: pointer;
+        font-size: 13px;
+      }
+
+      .nav-lang-flag {
+        width: 18px;
+        height: 12px;
+        background: linear-gradient(
+          #ff9933,
+          #ff9933 33%,
+          #fff 33%,
+          #fff 66%,
+          #128807 66%
+        );
+        border: 1px solid #fff;
+      }
+
+      .nav-cart {
+        display: flex;
+        align-items: center;
+        padding: 4px 6px;
+      }
+
+      .nav-cart-icon {
+        font-size: 24px;
+        position: relative;
+        margin-right: 4px;
+      }
+
+      .nav-cart-count {
+        position: absolute;
+        top: -4px;
+        left: 14px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #f08804;
+      }
+
+      .nav-cart-text {
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      /* Second row: hamburger + x-shop */
+      .nav-main {
+        display: flex;
+        align-items: center;
+        background-color: #232f3e;
+        color: #fff;
+        padding: 4px 12px;
+        gap: 8px;
+        white-space: nowrap;
+        overflow-x: auto;
+      }
+
+      .nav-main-left {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 4px 8px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .nav-hamburger {
+        width: 16px;
+        height: 14px;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .nav-hamburger span {
+        display: block;
+        height: 2px;
+        background-color: #fff;
+      }
+
+      .nav-xshop {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+      }
+
+      .nav-xshop a {
+        padding: 4px 6px;
+        border-radius: 2px;
+      }
+
+      .nav-xshop a:hover {
+        border: 1px solid #fff;
+        padding: 3px 5px;
+      }
+
+      /* ==========
+       HERO AREA
+    ========== */
+
+      .page-content {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 0 10px 40px;
+      }
+
+      .hero-wrapper {
+        position: relative;
+      }
+
+      .hero-carousel {
+        position: relative;
+        height: 350px;
+        overflow: hidden;
+      }
+
+      .hero-slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 0.6s ease-in-out;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .hero-slide.active {
+        opacity: 1;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 12px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .hero-overlay-message {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 10px 14px;
+        font-size: 14px;
+        border-radius: 2px;
+        text-align: center;
+        max-width: 96%;
+      }
+
+      .hero-btn {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #111;
+        font-size: 32px;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+
+      .hero-carousel:hover .hero-btn {
+        opacity: 1;
+      }
+
+      .hero-btn-left {
+        left: 0;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.7),
+          transparent
+        );
+      }
+
+      .hero-btn-right {
+        right: 0;
+        background: linear-gradient(
+          270deg,
+          rgba(255, 255, 255, 0.7),
+          transparent
+        );
+      }
+
+      .hero-dots {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+      }
+
+      .hero-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        border: 1px solid #fff;
+        background-color: rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+
+      .hero-dot.active {
+        background-color: #f3a847;
+        border-color: #f3a847;
+      }
+
+      /* Cards overlay on bottom of hero */
+      .home-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: -120px;
+        padding: 0 4px;
+        position: relative;
+        z-index: 10;
+      }
+
+      .home-card {
+        background-color: #fff;
+        padding: 16px 12px;
+        border-radius: 4px;
+        min-height: 250px;
+        box-shadow: 0 0 0 1px rgba(15, 17, 17, 0.15);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .home-card h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .home-card-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 1fr;
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+
+      .home-card-item {
+        background-color: #f3f3f3;
+        border-radius: 4px;
+        padding: 4px;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .home-card-link {
+        font-size: 13px;
+        color: #007185;
+        margin-top: 4px;
+      }
+
+      /* ================
+       TODAY'S DEALS
+    ================ */
+
+      .deals-strip-wrapper {
+        margin-top: 26px;
+      }
+
+      .deals-strip {
+        background-color: #fff;
+        padding: 16px 12px;
+        border-radius: 4px;
+        box-shadow: 0 0 0 1px rgba(15, 17, 17, 0.15);
+      }
+
+      .deals-header {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .deals-title {
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .deals-see-all {
+        font-size: 13px;
+        color: #007185;
+      }
+
+      .deals-carousel {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      .deals-carousel::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      .deals-carousel::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+        border-radius: 4px;
+      }
+
+      .deal-card {
+        flex: 0 0 180px;
+        background-color: #fff;
+        border-radius: 4px;
+        border: 1px solid #e3e6e6;
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        font-size: 12px;
+      }
+
+      .deal-image {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 3px;
+        margin-bottom: 8px;
+      }
+
+      .deal-badge-row {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 4px;
+      }
+
+      .deal-badge {
+        background-color: #cc0c39;
+        color: #fff;
+        font-size: 11px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+
+      .deal-badge-text {
+        color: #cc0c39;
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      .deal-price {
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 2px;
+      }
+
+      .deal-price span {
+        font-size: 11px;
+        font-weight: 400;
+        color: #565959;
+        text-decoration: line-through;
+        margin-left: 4px;
+      }
+
+      .deal-mrp {
+        font-size: 11px;
+        color: #565959;
+        margin-bottom: 4px;
+      }
+
+      .deal-mrp span {
+        color: #b12704;
+        font-weight: 700;
+      }
+
+      .deal-title {
+        font-size: 12px;
+        line-height: 1.3;
+        color: #0f1111;
+      }
+
+      /* ==========
+       RESPONSIVE
+    ========== */
+
+      @media (max-width: 1200px) {
+        .home-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 900px) {
+        .nav-belt {
+          flex-wrap: wrap;
+        }
+
+        .nav-fill {
+          order: 3;
+          width: 100%;
+          padding-top: 6px;
+        }
+
+        .nav-right {
+          margin-left: auto;
+        }
+
+        .hero-carousel {
+          height: 260px;
+        }
+
+        .home-grid {
+          margin-top: -80px;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 600px) {
+        .home-grid {
+          grid-template-columns: 1fr;
+          margin-top: 0;
+        }
+
+        .hero-carousel {
+          height: 220px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============================
+       NAVBAR MAIN (#navbar-main)
+  ============================= -->
+    <header id="navbar-main">
+      <!-- Top belt -->
+      <div class="nav-belt">
+        <!-- Left: Logo + Location -->
+        <div class="nav-left">
+          <div class="nav-logo">
+            <a href="#">
+              <span class="nav-logo-main">amazon</span>
+              <span class="nav-logo-sub">.in</span>
+            </a>
+          </div>
+          <div class="nav-location">
+            <span class="line-1">Deliver to Sujay</span>
+            <span class="line-2">Hyderabad 500072</span>
+          </div>
+        </div>
+
+        <!-- Center: Search -->
+        <div class="nav-fill">
+          <form class="nav-search">
+            <select class="nav-search-select">
+              <option>All</option>
+              <option>Electronics</option>
+              <option>Mobiles</option>
+              <option>Books</option>
+              <option>Fashion</option>
+            </select>
+            <input
+              type="text"
+              class="nav-search-input"
+              placeholder="Search Amazon.in"
+            />
+            <button type="submit" class="nav-search-button">🔍</button>
+          </form>
+        </div>
+
+        <!-- Right: Language, Account, Orders, Cart -->
+        <div class="nav-right">
+          <div class="nav-lang">
+            <div class="nav-lang-flag"></div>
+            <span>EN</span>
+          </div>
+
+          <div class="nav-item">
+            <span class="line-1">Hello, Sujay</span>
+            <span class="line-2">Account &amp; Lists</span>
+          </div>
+
+          <div class="nav-item">
+            <span class="line-1">Returns</span>
+            <span class="line-2">&amp; Orders</span>
+          </div>
+
+          <div class="nav-cart">
+            <div class="nav-cart-icon">
+              🛒
+              <span class="nav-cart-count">0</span>
+            </div>
+            <span class="nav-cart-text">Cart</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Second row: Hamburger + X-Shop -->
+      <nav class="nav-main">
+        <div class="nav-main-left">
+          <div class="nav-hamburger">
+            <span></span><span></span><span></span>
+          </div>
+          <span>All</span>
+        </div>
+        <div class="nav-xshop">
+          <a href="#">Fresh</a>
+          <a href="#">MX Player</a>
+          <a href="#">Sell</a>
+          <a href="#">Amazon Pay</a>
+          <a href="#">Gift Cards</a>
+          <a href="#">Buy Again</a>
+          <a href="#">AmazonBasics</a>
+          <a href="#">Kindle eBooks</a>
+          <a href="#">Gift Ideas</a>
+          <a href="#">Sujay&apos;s Amazon.in</a>
+          <a href="#">Browsing History</a>
+          <a href="#">Customer Service</a>
+          <a href="#">Home Improvement</a>
+          <a href="#">Bestsellers</a>
+          <a href="#">Books</a>
+          <a href="#">Home &amp; Kitchen</a>
+          <a href="#">Health &amp; Personal Care</a>
+          <a href="#">Subscribe &amp; Save</a>
+          <a href="#">Beauty &amp; Personal Care</a>
+          <a href="#">New Releases</a>
+          <a href="#">Electronics</a>
+          <a href="#">Computers</a>
+          <a href="#">Audible</a>
+          <a href="#">Fashion</a>
+          <a href="#">Toys &amp; Games</a>
+          <a href="#">Sports &amp; Outdoors</a>
+          <a href="#">Car &amp; Motorbike</a>
+          <a href="#">Mobiles</a>
+          <a href="#">Pet Supplies</a>
+          <a href="#">Video Games</a>
+          <a href="#">Baby</a>
+          <a href="#">Coupons</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- =====================
+       PAGE CONTENT WRAPPER
+  ====================== -->
+    <main class="page-content">
+      <!-- HERO + GRID -->
+      <section class="hero-wrapper">
+        <!-- HERO CAROUSEL -->
+        <div class="hero-carousel" id="hero-carousel">
+          <!-- Slide 1 -->
+          <div
+            class="hero-slide active"
+            data-index="0"
+            style="
+              background-image: url('https://m.media-amazon.com/images/G/31/img25/Fashion/Gateway/December/Unrec/PC/1500/PFFD/Gen/under699_3000pc._CB773758356_.jpg');
+            "
+          ></div>
+
+          <!-- Slide 2 -->
+          <div
+            class="hero-slide"
+            data-index="1"
+            style="
+              background-image: url('https://m.media-amazon.com/images/G/31/img21/MA2024/AugArt24/19th/PC_Hero_3000x1200_BAU_DAY2._CB771536302_.jpg');
+            "
+          ></div>
+
+          <!-- Slide 3 -->
+          <div
+            class="hero-slide"
+            data-index="2"
+            style="
+              background-image: url('https://m.media-amazon.com/images/G/31/img24/Consumables/December/GW/Hero/PC_Unrec._CB773760737_.jpg');
+            "
+          ></div>
+
+          <!-- Overlay message -->
+          <div class="hero-overlay">
+            <div class="hero-overlay-message">
+              You are on Amazon.in. You can shop millions of products with fast
+              local delivery.
+            </div>
+          </div>
+
+          <!-- Nav buttons -->
+          <div class="hero-btn hero-btn-left" id="hero-prev">&#10094;</div>
+          <div class="hero-btn hero-btn-right" id="hero-next">&#10095;</div>
+
+          <!-- Dots -->
+          <div class="hero-dots" id="hero-dots">
+            <div class="hero-dot active" data-index="0"></div>
+            <div class="hero-dot" data-index="1"></div>
+            <div class="hero-dot" data-index="2"></div>
+          </div>
+        </div>
+
+        <!-- PROMO GRID below hero -->
+        <div class="home-grid">
+          <article class="home-card">
+            <h2>Top picks for you</h2>
+            <div class="home-card-grid">
+              <div class="home-card-item">Headphones &amp; Earbuds</div>
+              <div class="home-card-item">Smartwatches</div>
+              <div class="home-card-item">Keyboards &amp; Mice</div>
+              <div class="home-card-item">Laptop Accessories</div>
+            </div>
+            <a href="#" class="home-card-link">See more</a>
+          </article>
+
+          <article class="home-card">
+            <h2>Shop by Category</h2>
+            <div class="home-card-grid">
+              <div class="home-card-item">Mobiles</div>
+              <div class="home-card-item">Fashion</div>
+              <div class="home-card-item">Home &amp; Kitchen</div>
+              <div class="home-card-item">Beauty &amp; Personal Care</div>
+            </div>
+            <a href="#" class="home-card-link">Explore all</a>
+          </article>
+
+          <article class="home-card">
+            <h2>Amazon Pay</h2>
+            <div class="home-card-grid">
+              <div class="home-card-item">Mobile Recharge</div>
+              <div class="home-card-item">Electricity Bills</div>
+              <div class="home-card-item">DTH &amp; Cable</div>
+              <div class="home-card-item">Rewards &amp; Offers</div>
+            </div>
+            <a href="#" class="home-card-link">Recharge &amp; pay bills</a>
+          </article>
+
+          <article class="home-card">
+            <h2>Sign in for best experience</h2>
+            <div style="margin-top: 12px">
+              <button
+                style="
+                  width: 100%;
+                  padding: 8px;
+                  background-color: #ffd814;
+                  border: 1px solid #fcd200;
+                  border-radius: 4px;
+                  cursor: pointer;
+                  font-size: 13px;
+                  font-weight: 700;
+                "
+              >
+                Sign in securely
+              </button>
+            </div>
+            <a href="#" class="home-card-link">New customer? Start here.</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================
+         TODAY'S DEALS
+    ================ -->
+      <section class="deals-strip-wrapper">
+        <div class="deals-strip">
+          <div class="deals-header">
+            <div class="deals-title">Today&apos;s Deals</div>
+            <a href="#" class="deals-see-all">See all deals</a>
+          </div>
+
+          <div class="deals-carousel">
+            <!-- Deal 1 -->
+            <article class="deal-card">
+              <img
+                src="https://m.media-amazon.com/images/I/71qJk7oORVL._AC_UY218_.jpg"
+                class="deal-image"
+                alt=""
+              />
+              <div class="deal-badge-row">
+                <span class="deal-badge">25% off</span>
+                <span class="deal-badge-text">Deal of the Day</span>
+              </div>
+              <div class="deal-price">₹1,499 <span>M.R.P.: ₹1,999</span></div>
+              <div class="deal-mrp">You save: <span>₹500</span></div>
+              <div class="deal-title">
+                Bluetooth Earbuds with ENC Noise Cancellation
+              </div>
+            </article>
+
+            <!-- Deal 2 -->
+            <article class="deal-card">
+              <img
+                src="https://m.media-amazon.com/images/I/71tHfF+CLCL._AC_UY218_.jpg"
+                class="deal-image"
+                alt=""
+              />
+              <div class="deal-badge-row">
+                <span class="deal-badge">40% off</span>
+                <span class="deal-badge-text">Limited time deal</span>
+              </div>
+              <div class="deal-price">₹2,999 <span>M.R.P.: ₹4,999</span></div>
+              <div class="deal-mrp">You save: <span>₹2,000</span></div>
+              <div class="deal-title">Smart LED TV - 43 inch Full HD</div>
+            </article>
+
+            <!-- Deal 3 -->
+            <article class="deal-card">
+              <img
+                src="https://m.media-amazon.com/images/I/61g0SWvRKzL._AC_UY218_.jpg"
+                class="deal-image"
+                alt=""
+              />
+              <div class="deal-badge-row">
+                <span class="deal-badge">30% off</span>
+                <span class="deal-badge-text">Today&apos;s Deal</span>
+              </div>
+              <div class="deal-price">₹699 <span>M.R.P.: ₹999</span></div>
+              <div class="deal-mrp">You save: <span>₹300</span></div>
+              <div class="deal-title">
+                1L Insulated Stainless Steel Water Bottle
+              </div>
+            </article>
+
+            <!-- Deal 4 -->
+            <article class="deal-card">
+              <img
+                src="https://m.media-amazon.com/images/I/71UAZ4BAHzL._AC_UY218_.jpg"
+                class="deal-image"
+                alt=""
+              />
+              <div class="deal-badge-row">
+                <span class="deal-badge">55% off</span>
+                <span class="deal-badge-text">Best Seller</span>
+              </div>
+              <div class="deal-price">₹899 <span>M.R.P.: ₹1,999</span></div>
+              <div class="deal-mrp">You save: <span>₹1,100</span></div>
+              <div class="deal-title">
+                30L Travel Backpack (Water Resistant)
+              </div>
+            </article>
+
+            <!-- Deal 5 -->
+            <article class="deal-card">
+              <img
+                src="https://m.media-amazon.com/images/I/61FRC2G4TjL._AC_UY218_.jpg"
+                class="deal-image"
+                alt=""
+              />
+              <div class="deal-badge-row">
+                <span class="deal-badge">35% off</span>
+                <span class="deal-badge-text">Lightning Deal</span>
+              </div>
+              <div class="deal-price">₹1,299 <span>M.R.P.: ₹1,999</span></div>
+              <div class="deal-mrp">You save: <span>₹700</span></div>
+              <div class="deal-title">
+                Electric Stainless Steel Kettle (1.8L)
+              </div>
+            </article>
+
+            <!-- Deal 6 -->
+            <article class="deal-card">
+              <img
+                src="https://m.media-amazon.com/images/I/71bIXqdvvQS._AC_UY218_.jpg"
+                class="deal-image"
+                alt=""
+              />
+              <div class="deal-badge-row">
+                <span class="deal-badge">20% off</span>
+                <span class="deal-badge-text">Deal of the Day</span>
+              </div>
+              <div class="deal-price">₹399 <span>M.R.P.: ₹499</span></div>
+              <div class="deal-mrp">You save: <span>₹100</span></div>
+              <div class="deal-title">
+                Microfiber Double Bedsheet (with 2 Pillow Covers)
+              </div>
+            </article>
+
+            <!-- Deal 7 -->
+            <article class="deal-card">
+              <img
+                src="https://m.media-amazon.com/images/I/71a5fVzcyxL._AC_UY218_.jpg"
+                class="deal-image"
+                alt=""
+              />
+              <div class="deal-badge-row">
+                <span class="deal-badge">45% off</span>
+                <span class="deal-badge-text">Limited time deal</span>
+              </div>
+              <div class="deal-price">₹549 <span>M.R.P.: ₹999</span></div>
+              <div class="deal-mrp">You save: <span>₹450</span></div>
+              <div class="deal-title">
+                Smart Fitness Band (Heart Rate + Sleep Monitor)
+              </div>
+            </article>
+
+            <!-- Deal 8 -->
+            <article class="deal-card">
+              <img
+                src="https://m.media-amazon.com/images/I/61u1YnYqiCL._AC_UY218_.jpg"
+                class="deal-image"
+                alt=""
+              />
+              <div class="deal-badge-row">
+                <span class="deal-badge">50% off</span>
+                <span class="deal-badge-text">Today&apos;s Deal</span>
+              </div>
+              <div class="deal-price">₹999 <span>M.R.P.: ₹1,999</span></div>
+              <div class="deal-mrp">You save: <span>₹1,000</span></div>
+              <div class="deal-title">
+                Over-the-ear Wired Headphones (Deep Bass)
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===============
+       HERO CAROUSEL JS
+  ================ -->
+    <script>
+      (function () {
+        const slides = document.querySelectorAll(".hero-slide");
+        const dots = document.querySelectorAll(".hero-dot");
+        const prevBtn = document.getElementById("hero-prev");
+        const nextBtn = document.getElementById("hero-next");
+
+        let current = 0;
+        let timer = null;
+        const INTERVAL = 5000;
+
+        function showSlide(index) {
+          slides.forEach((s, i) => {
+            s.classList.toggle("active", i === index);
+          });
+          dots.forEach((d, i) => {
+            d.classList.toggle("active", i === index);
+          });
+          current = index;
+        }
+
+        function nextSlide() {
+          const next = (current + 1) % slides.length;
+          showSlide(next);
+        }
+
+        function prevSlide() {
+          const prev = (current - 1 + slides.length) % slides.length;
+          showSlide(prev);
+        }
+
+        function startAuto() {
+          stopAuto();
+          timer = setInterval(nextSlide, INTERVAL);
+        }
+
+        function stopAuto() {
+          if (timer) {
+            clearInterval(timer);
+            timer = null;
+          }
+        }
+
+        nextBtn.addEventListener("click", () => {
+          nextSlide();
+          startAuto();
+        });
+
+        prevBtn.addEventListener("click", () => {
+          prevSlide();
+          startAuto();
+        });
+
+        dots.forEach((dot) => {
+          dot.addEventListener("click", () => {
+            const index = Number(dot.getAttribute("data-index"));
+            showSlide(index);
+            startAuto();
+          });
+        });
+
+        const hero = document.getElementById("hero-carousel");
+        hero.addEventListener("mouseenter", stopAuto);
+        hero.addEventListener("mouseleave", startAuto);
+
+        // init
+        showSlide(0);
+        startAuto();
+      })();
+    </script>
+  </body>
+</html>

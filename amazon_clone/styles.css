@@ -1,0 +1,184 @@
+/* Reset a bit for consistency */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #e3e6e6;
+}
+
+/* === NAVBAR WRAPPER === */
+#navbar-main {
+  background-color: #131921; /* Amazon dark blue for belt */
+  color: #fff;
+}
+
+/* === INNER NAVBAR FLEX CONTAINER === */
+#navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* LEFT / MIDDLE / RIGHT sections */
+.nav-left,
+.nav-fill,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-left {
+  flex: 0 0 auto;
+  gap: 12px;
+}
+
+.nav-fill {
+  flex: 1 1 auto;
+}
+
+.nav-right {
+  flex: 0 0 auto;
+  gap: 16px;
+  margin-left: 12px;
+}
+
+/* === LOGO === */
+.nav-logo {
+  display: inline-flex;
+  align-items: flex-end;
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding: 4px 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.nav-logo span {
+  font-size: 0.9rem;
+}
+
+.nav-logo:hover {
+  border-color: #fff;
+}
+
+/* === LOCATION BLOCK === */
+.nav-location {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  line-height: 1.1;
+  padding: 4px 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.nav-location .line-1 {
+  color: #ccc;
+}
+
+.nav-location .line-2 {
+  font-weight: bold;
+}
+
+.nav-location:hover {
+  border-color: #fff;
+}
+
+/* === SEARCH BAR === */
+.nav-search {
+  display: flex;
+  width: 100%;
+  max-width: 650px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.nav-search-dropdown {
+  border: none;
+  padding: 8px;
+  background-color: #e6e6e6;
+  font-size: 0.85rem;
+}
+
+.nav-search-input {
+  flex: 1;
+  border: none;
+  padding: 8px;
+  font-size: 0.9rem;
+}
+
+.nav-search-input:focus {
+  outline: none;
+}
+
+.nav-search-button {
+  border: none;
+  padding: 0 14px;
+  background-color: #febd69;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.nav-search-button:hover {
+  background-color: #f3a847;
+}
+
+/* === RIGHT SIDE ITEMS === */
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4px 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.nav-item .line-1 {
+  color: #ccc;
+}
+
+.nav-item .line-2 {
+  font-weight: bold;
+}
+
+/* smaller single-line item (EN) */
+.nav-item.small {
+  flex-direction: row;
+  align-items: center;
+  font-weight: bold;
+}
+
+/* CART */
+.nav-cart {
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  font-weight: bold;
+}
+
+.nav-cart .cart-count {
+  position: absolute;
+  top: -6px;
+  left: 10px;
+  font-size: 0.8rem;
+  color: #f08804;
+}
+
+.nav-cart .cart-label {
+  margin-left: 20px;
+}
+
+.nav-item:hover,
+.nav-cart:hover {
+  border-color: #fff;
+}
